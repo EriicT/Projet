@@ -1,0 +1,266 @@
+MPLINK 4.41, Linker
+Linker Map File - Created Tue Jun 25 11:15:22 2013
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                   .org_0       code   0x000000    program   0x000002
+                   .cinit    romdata   0x000001    program   0x000004
+                   stan_t       code   0x000100    program   0x000472
+                    PROG1       code   0x000339    program   0x00026c
+                    PROG2       code   0x000800    program   0x00007c
+        .config_2007_ER.O       code   0x002007    program   0x000002
+               D_LCD_DATA      udata   0x000020       data   0x000004
+                variables      udata   0x000030       data   0x000014
+                 MATH_VAR      udata   0x000050       data   0x000009
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x000002      
+                            0x000100    0x00046e      
+                            0x000800    0x00083d      
+                            0x002007    0x002007      
+            945 out of 8454 program addresses used, program memory utilization is 11%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                 Delay1ms   0x00042f    program     static L:\Télèmètre ER bouton\p16lcd.asm
+                Delay30ms   0x000436    program     static L:\Télèmètre ER bouton\p16lcd.asm
+             DelayXCycles   0x00042c    program     static L:\Télèmètre ER bouton\p16lcd.asm
+                  Delay_1   0x000432    program     static L:\Télèmètre ER bouton\p16lcd.asm
+                    FinRd   0x000424    program     static L:\Télèmètre ER bouton\p16lcd.asm
+                  LCDBusy   0x000425    program     extern L:\Télèmètre ER bouton\p16lcd.asm
+                  LCDInit   0x000356    program     extern L:\Télèmètre ER bouton\p16lcd.asm
+                LCDLine_1   0x000339    program     extern L:\Télèmètre ER bouton\p16lcd.asm
+                LCDLine_2   0x00033f    program     extern L:\Télèmètre ER bouton\p16lcd.asm
+                  LCDRead   0x0003e3    program     static L:\Télèmètre ER bouton\p16lcd.asm
+                 LCDWrite   0x0003da    program     extern L:\Télèmètre ER bouton\p16lcd.asm
+           LCDWriteNibble   0x0003b6    program     static L:\Télèmètre ER bouton\p16lcd.asm
+               LOOPU1608A   0x000818    program     static L:\Télèmètre ER bouton\p16math.asm
+               LOOPU1608B   0x000826    program     static L:\Télèmètre ER bouton\p16math.asm
+               LOOPUM0808   0x00080d    program     static L:\Télèmètre ER bouton\p16math.asm
+              LOOPUM0808A   0x000804    program     static L:\Télèmètre ER bouton\p16math.asm
+                LUM0808NA   0x000810    program     static L:\Télèmètre ER bouton\p16math.asm
+               LUM0808NAP   0x00080b    program     static L:\Télèmètre ER bouton\p16math.asm
+                      Lb1   0x00030b    program     static L:\Télèmètre ER bouton\ER.asm
+                      Lb2   0x00030f    program     static L:\Télèmètre ER bouton\ER.asm
+                      Lb3   0x000313    program     static L:\Télèmètre ER bouton\ER.asm
+                      Lb4   0x000317    program     static L:\Télèmètre ER bouton\ER.asm
+                LongDelay   0x000461    program     static L:\Télèmètre ER bouton\p16lcd.asm
+            LongDelayLast   0x00046b    program     static L:\Télèmètre ER bouton\p16lcd.asm
+                UDIV1608L   0x000815    program     extern L:\Télèmètre ER bouton\p16math.asm
+                UMUL0808L   0x000800    program     extern L:\Télèmètre ER bouton\p16math.asm
+                   UOK68A   0x000820    program     static L:\Télèmètre ER bouton\p16math.asm
+                   UOK68B   0x00083a    program     static L:\Télèmètre ER bouton\p16math.asm
+              _PROG1_0015   0x00034e    program     static L:\Télèmètre ER bouton\p16lcd.asm
+              _PROG1_0038   0x000371    program     static L:\Télèmètre ER bouton\p16lcd.asm
+              _PROG1_0043   0x00037c    program     static L:\Télèmètre ER bouton\p16lcd.asm
+             _stan_t_023D   0x00023d    program     static L:\Télèmètre ER bouton\ER.asm
+             _stan_t_0245   0x000245    program     static L:\Télèmètre ER bouton\ER.asm
+             _stan_t_0289   0x000289    program     static L:\Télèmètre ER bouton\ER.asm
+             _stan_t_0291   0x000291    program     static L:\Télèmètre ER bouton\ER.asm
+             _stan_t_02AA   0x0002aa    program     static L:\Télèmètre ER bouton\ER.asm
+             _stan_t_02B2   0x0002b2    program     static L:\Télèmètre ER bouton\ER.asm
+             _stan_t_02BB   0x0002bb    program     static L:\Télèmètre ER bouton\ER.asm
+             _stan_t_02BD   0x0002bd    program     static L:\Télèmètre ER bouton\ER.asm
+             _stan_t_02C7   0x0002c7    program     static L:\Télèmètre ER bouton\ER.asm
+             _stan_t_02C9   0x0002c9    program     static L:\Télèmètre ER bouton\ER.asm
+             _stan_t_02CB   0x0002cb    program     static L:\Télèmètre ER bouton\ER.asm
+                bin16_bcd   0x0002ea    program     static L:\Télèmètre ER bouton\ER.asm
+                  bin_bcd   0x0002cd    program     static L:\Télèmètre ER bouton\ER.asm
+              boucle_tmr1   0x000199    program     static L:\Télèmètre ER bouton\ER.asm
+             boucle_tmr11   0x00019e    program     static L:\Télèmètre ER bouton\ER.asm
+              boucle_tmr2   0x0001a4    program     static L:\Télèmètre ER bouton\ER.asm
+             boucle_tmr22   0x0001a9    program     static L:\Télèmètre ER bouton\ER.asm
+              boucle_tmr3   0x0001af    program     static L:\Télèmètre ER bouton\ER.asm
+             boucle_tmr33   0x0001b4    program     static L:\Télèmètre ER bouton\ER.asm
+              boucle_tmr4   0x0001ba    program     static L:\Télèmètre ER bouton\ER.asm
+             boucle_tmr44   0x0001bf    program     static L:\Télèmètre ER bouton\ER.asm
+              boucle_tmr5   0x0001c5    program     static L:\Télèmètre ER bouton\ER.asm
+             boucle_tmr55   0x0001ca    program     static L:\Télèmètre ER bouton\ER.asm
+              boucle_tmr6   0x0001d0    program     static L:\Télèmètre ER bouton\ER.asm
+             boucle_tmr66   0x0001d5    program     static L:\Télèmètre ER bouton\ER.asm
+              boucle_tmr7   0x0001db    program     static L:\Télèmètre ER bouton\ER.asm
+             boucle_tmr77   0x0001e0    program     static L:\Télèmètre ER bouton\ER.asm
+              boucle_tmr8   0x0001e6    program     static L:\Télèmètre ER bouton\ER.asm
+             boucle_tmr88   0x0001eb    program     static L:\Télèmètre ER bouton\ER.asm
+                  d_write   0x000345    program     extern L:\Télèmètre ER bouton\p16lcd.asm
+                    debut   0x000181    program     static L:\Télèmètre ER bouton\ER.asm
+              delay_100ms   0x0002b4    program     static L:\Télèmètre ER bouton\ER.asm
+                 delay_1s   0x0002bf    program     static L:\Télèmètre ER bouton\ER.asm
+                ghundreth   0x0002d2    program     static L:\Télèmètre ER bouton\ER.asm
+                   gtenth   0x0002d9    program     static L:\Télèmètre ER bouton\ER.asm
+                  i_write   0x000352    program     extern L:\Télèmètre ER bouton\p16lcd.asm
+                     init   0x00031c    program     static L:\Télèmètre ER bouton\ER.asm
+             interruption   0x0001f0    program     static L:\Télèmètre ER bouton\ER.asm
+                     over   0x0002e0    program     static L:\Télèmètre ER bouton\ER.asm
+             presentation   0x00024c    program     static L:\Télèmètre ER bouton\ER.asm
+                programme   0x00018f    program     static L:\Télèmètre ER bouton\ER.asm
+              stan_char_1   0x000272    program     static L:\Télèmètre ER bouton\ER.asm
+              stan_char_2   0x000293    program     static L:\Télèmètre ER bouton\ER.asm
+         stan_next_char_1   0x000277    program     static L:\Télèmètre ER bouton\ER.asm
+         stan_next_char_2   0x000298    program     static L:\Télèmètre ER bouton\ER.asm
+               stan_table   0x000100    program     static L:\Télèmètre ER bouton\ER.asm
+                    suite   0x000249    program     static L:\Télèmètre ER bouton\ER.asm
+                   suite1   0x00018c    program     static L:\Télèmètre ER bouton\ER.asm
+                 testflag   0x0001ee    program     static L:\Télèmètre ER bouton\ER.asm
+                   AARGB0   0x000050       data     extern L:\Télèmètre ER bouton\p16math.asm
+                   AARGB1   0x000051       data     extern L:\Télèmètre ER bouton\p16math.asm
+                   AARGB5   0x000052       data     static L:\Télèmètre ER bouton\p16math.asm
+                   BARGB0   0x000053       data     extern L:\Télèmètre ER bouton\p16math.asm
+                   BARGB1   0x000054       data     static L:\Télèmètre ER bouton\p16math.asm
+                  COUNTER   0x000020       data     static L:\Télèmètre ER bouton\p16lcd.asm
+                     Hund   0x000041       data     static L:\Télèmètre ER bouton\ER.asm
+                LOOPCOUNT   0x000058       data     static L:\Télèmètre ER bouton\p16math.asm
+                      LSD   0x000037       data     static L:\Télèmètre ER bouton\ER.asm
+                      MSD   0x000039       data     static L:\Télèmètre ER bouton\ER.asm
+                      MsD   0x000038       data     static L:\Télèmètre ER bouton\ER.asm
+                     NumH   0x00003d       data     static L:\Télèmètre ER bouton\ER.asm
+                     NumL   0x00003e       data     static L:\Télèmètre ER bouton\ER.asm
+                     Ones   0x000043       data     static L:\Télèmètre ER bouton\ER.asm
+                    REMB0   0x000055       data     static L:\Télèmètre ER bouton\p16math.asm
+                    REMB1   0x000056       data     static L:\Télèmètre ER bouton\p16math.asm
+                     TEMP   0x000057       data     static L:\Télèmètre ER bouton\p16math.asm
+                     TenK   0x00003f       data     static L:\Télèmètre ER bouton\ER.asm
+                     Tens   0x000042       data     static L:\Télèmètre ER bouton\ER.asm
+                     Thou   0x000040       data     static L:\Télèmètre ER bouton\ER.asm
+                 cmd_byte   0x000035       data     static L:\Télèmètre ER bouton\ER.asm
+                    delay   0x000021       data     static L:\Télèmètre ER bouton\p16lcd.asm
+                    hours   0x00003c       data     static L:\Télèmètre ER bouton\ER.asm
+                  minutes   0x00003b       data     static L:\Télèmètre ER bouton\ER.asm
+                ptr_count   0x000031       data     static L:\Télèmètre ER bouton\ER.asm
+                  ptr_pos   0x000030       data     static L:\Télèmètre ER bouton\ER.asm
+                  seconds   0x00003a       data     static L:\Télèmètre ER bouton\ER.asm
+                   temp_1   0x000032       data     static L:\Télèmètre ER bouton\ER.asm
+                   temp_2   0x000033       data     static L:\Télèmètre ER bouton\ER.asm
+                   temp_3   0x000034       data     static L:\Télèmètre ER bouton\ER.asm
+                  temp_rd   0x000023       data     static L:\Télèmètre ER bouton\p16lcd.asm
+                  temp_wr   0x000022       data     extern L:\Télèmètre ER bouton\p16lcd.asm
+              temperature   0x000036       data     static L:\Télèmètre ER bouton\ER.asm
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+               stan_table   0x000100    program     static L:\Télèmètre ER bouton\ER.asm
+                    debut   0x000181    program     static L:\Télèmètre ER bouton\ER.asm
+                   suite1   0x00018c    program     static L:\Télèmètre ER bouton\ER.asm
+                programme   0x00018f    program     static L:\Télèmètre ER bouton\ER.asm
+              boucle_tmr1   0x000199    program     static L:\Télèmètre ER bouton\ER.asm
+             boucle_tmr11   0x00019e    program     static L:\Télèmètre ER bouton\ER.asm
+              boucle_tmr2   0x0001a4    program     static L:\Télèmètre ER bouton\ER.asm
+             boucle_tmr22   0x0001a9    program     static L:\Télèmètre ER bouton\ER.asm
+              boucle_tmr3   0x0001af    program     static L:\Télèmètre ER bouton\ER.asm
+             boucle_tmr33   0x0001b4    program     static L:\Télèmètre ER bouton\ER.asm
+              boucle_tmr4   0x0001ba    program     static L:\Télèmètre ER bouton\ER.asm
+             boucle_tmr44   0x0001bf    program     static L:\Télèmètre ER bouton\ER.asm
+              boucle_tmr5   0x0001c5    program     static L:\Télèmètre ER bouton\ER.asm
+             boucle_tmr55   0x0001ca    program     static L:\Télèmètre ER bouton\ER.asm
+              boucle_tmr6   0x0001d0    program     static L:\Télèmètre ER bouton\ER.asm
+             boucle_tmr66   0x0001d5    program     static L:\Télèmètre ER bouton\ER.asm
+              boucle_tmr7   0x0001db    program     static L:\Télèmètre ER bouton\ER.asm
+             boucle_tmr77   0x0001e0    program     static L:\Télèmètre ER bouton\ER.asm
+              boucle_tmr8   0x0001e6    program     static L:\Télèmètre ER bouton\ER.asm
+             boucle_tmr88   0x0001eb    program     static L:\Télèmètre ER bouton\ER.asm
+                 testflag   0x0001ee    program     static L:\Télèmètre ER bouton\ER.asm
+             interruption   0x0001f0    program     static L:\Télèmètre ER bouton\ER.asm
+             _stan_t_023D   0x00023d    program     static L:\Télèmètre ER bouton\ER.asm
+             _stan_t_0245   0x000245    program     static L:\Télèmètre ER bouton\ER.asm
+                    suite   0x000249    program     static L:\Télèmètre ER bouton\ER.asm
+             presentation   0x00024c    program     static L:\Télèmètre ER bouton\ER.asm
+              stan_char_1   0x000272    program     static L:\Télèmètre ER bouton\ER.asm
+         stan_next_char_1   0x000277    program     static L:\Télèmètre ER bouton\ER.asm
+             _stan_t_0289   0x000289    program     static L:\Télèmètre ER bouton\ER.asm
+             _stan_t_0291   0x000291    program     static L:\Télèmètre ER bouton\ER.asm
+              stan_char_2   0x000293    program     static L:\Télèmètre ER bouton\ER.asm
+         stan_next_char_2   0x000298    program     static L:\Télèmètre ER bouton\ER.asm
+             _stan_t_02AA   0x0002aa    program     static L:\Télèmètre ER bouton\ER.asm
+             _stan_t_02B2   0x0002b2    program     static L:\Télèmètre ER bouton\ER.asm
+              delay_100ms   0x0002b4    program     static L:\Télèmètre ER bouton\ER.asm
+             _stan_t_02BB   0x0002bb    program     static L:\Télèmètre ER bouton\ER.asm
+             _stan_t_02BD   0x0002bd    program     static L:\Télèmètre ER bouton\ER.asm
+                 delay_1s   0x0002bf    program     static L:\Télèmètre ER bouton\ER.asm
+             _stan_t_02C7   0x0002c7    program     static L:\Télèmètre ER bouton\ER.asm
+             _stan_t_02C9   0x0002c9    program     static L:\Télèmètre ER bouton\ER.asm
+             _stan_t_02CB   0x0002cb    program     static L:\Télèmètre ER bouton\ER.asm
+                  bin_bcd   0x0002cd    program     static L:\Télèmètre ER bouton\ER.asm
+                ghundreth   0x0002d2    program     static L:\Télèmètre ER bouton\ER.asm
+                   gtenth   0x0002d9    program     static L:\Télèmètre ER bouton\ER.asm
+                     over   0x0002e0    program     static L:\Télèmètre ER bouton\ER.asm
+                bin16_bcd   0x0002ea    program     static L:\Télèmètre ER bouton\ER.asm
+                      Lb1   0x00030b    program     static L:\Télèmètre ER bouton\ER.asm
+                      Lb2   0x00030f    program     static L:\Télèmètre ER bouton\ER.asm
+                      Lb3   0x000313    program     static L:\Télèmètre ER bouton\ER.asm
+                      Lb4   0x000317    program     static L:\Télèmètre ER bouton\ER.asm
+                     init   0x00031c    program     static L:\Télèmètre ER bouton\ER.asm
+                LCDLine_1   0x000339    program     extern L:\Télèmètre ER bouton\p16lcd.asm
+                LCDLine_2   0x00033f    program     extern L:\Télèmètre ER bouton\p16lcd.asm
+                  d_write   0x000345    program     extern L:\Télèmètre ER bouton\p16lcd.asm
+              _PROG1_0015   0x00034e    program     static L:\Télèmètre ER bouton\p16lcd.asm
+                  i_write   0x000352    program     extern L:\Télèmètre ER bouton\p16lcd.asm
+                  LCDInit   0x000356    program     extern L:\Télèmètre ER bouton\p16lcd.asm
+              _PROG1_0038   0x000371    program     static L:\Télèmètre ER bouton\p16lcd.asm
+              _PROG1_0043   0x00037c    program     static L:\Télèmètre ER bouton\p16lcd.asm
+           LCDWriteNibble   0x0003b6    program     static L:\Télèmètre ER bouton\p16lcd.asm
+                 LCDWrite   0x0003da    program     extern L:\Télèmètre ER bouton\p16lcd.asm
+                  LCDRead   0x0003e3    program     static L:\Télèmètre ER bouton\p16lcd.asm
+                    FinRd   0x000424    program     static L:\Télèmètre ER bouton\p16lcd.asm
+                  LCDBusy   0x000425    program     extern L:\Télèmètre ER bouton\p16lcd.asm
+             DelayXCycles   0x00042c    program     static L:\Télèmètre ER bouton\p16lcd.asm
+                 Delay1ms   0x00042f    program     static L:\Télèmètre ER bouton\p16lcd.asm
+                  Delay_1   0x000432    program     static L:\Télèmètre ER bouton\p16lcd.asm
+                Delay30ms   0x000436    program     static L:\Télèmètre ER bouton\p16lcd.asm
+                LongDelay   0x000461    program     static L:\Télèmètre ER bouton\p16lcd.asm
+            LongDelayLast   0x00046b    program     static L:\Télèmètre ER bouton\p16lcd.asm
+                UMUL0808L   0x000800    program     extern L:\Télèmètre ER bouton\p16math.asm
+              LOOPUM0808A   0x000804    program     static L:\Télèmètre ER bouton\p16math.asm
+               LUM0808NAP   0x00080b    program     static L:\Télèmètre ER bouton\p16math.asm
+               LOOPUM0808   0x00080d    program     static L:\Télèmètre ER bouton\p16math.asm
+                LUM0808NA   0x000810    program     static L:\Télèmètre ER bouton\p16math.asm
+                UDIV1608L   0x000815    program     extern L:\Télèmètre ER bouton\p16math.asm
+               LOOPU1608A   0x000818    program     static L:\Télèmètre ER bouton\p16math.asm
+                   UOK68A   0x000820    program     static L:\Télèmètre ER bouton\p16math.asm
+               LOOPU1608B   0x000826    program     static L:\Télèmètre ER bouton\p16math.asm
+                   UOK68B   0x00083a    program     static L:\Télèmètre ER bouton\p16math.asm
+                  COUNTER   0x000020       data     static L:\Télèmètre ER bouton\p16lcd.asm
+                    delay   0x000021       data     static L:\Télèmètre ER bouton\p16lcd.asm
+                  temp_wr   0x000022       data     extern L:\Télèmètre ER bouton\p16lcd.asm
+                  temp_rd   0x000023       data     static L:\Télèmètre ER bouton\p16lcd.asm
+                  ptr_pos   0x000030       data     static L:\Télèmètre ER bouton\ER.asm
+                ptr_count   0x000031       data     static L:\Télèmètre ER bouton\ER.asm
+                   temp_1   0x000032       data     static L:\Télèmètre ER bouton\ER.asm
+                   temp_2   0x000033       data     static L:\Télèmètre ER bouton\ER.asm
+                   temp_3   0x000034       data     static L:\Télèmètre ER bouton\ER.asm
+                 cmd_byte   0x000035       data     static L:\Télèmètre ER bouton\ER.asm
+              temperature   0x000036       data     static L:\Télèmètre ER bouton\ER.asm
+                      LSD   0x000037       data     static L:\Télèmètre ER bouton\ER.asm
+                      MsD   0x000038       data     static L:\Télèmètre ER bouton\ER.asm
+                      MSD   0x000039       data     static L:\Télèmètre ER bouton\ER.asm
+                  seconds   0x00003a       data     static L:\Télèmètre ER bouton\ER.asm
+                  minutes   0x00003b       data     static L:\Télèmètre ER bouton\ER.asm
+                    hours   0x00003c       data     static L:\Télèmètre ER bouton\ER.asm
+                     NumH   0x00003d       data     static L:\Télèmètre ER bouton\ER.asm
+                     NumL   0x00003e       data     static L:\Télèmètre ER bouton\ER.asm
+                     TenK   0x00003f       data     static L:\Télèmètre ER bouton\ER.asm
+                     Thou   0x000040       data     static L:\Télèmètre ER bouton\ER.asm
+                     Hund   0x000041       data     static L:\Télèmètre ER bouton\ER.asm
+                     Tens   0x000042       data     static L:\Télèmètre ER bouton\ER.asm
+                     Ones   0x000043       data     static L:\Télèmètre ER bouton\ER.asm
+                   AARGB0   0x000050       data     extern L:\Télèmètre ER bouton\p16math.asm
+                   AARGB1   0x000051       data     extern L:\Télèmètre ER bouton\p16math.asm
+                   AARGB5   0x000052       data     static L:\Télèmètre ER bouton\p16math.asm
+                   BARGB0   0x000053       data     extern L:\Télèmètre ER bouton\p16math.asm
+                   BARGB1   0x000054       data     static L:\Télèmètre ER bouton\p16math.asm
+                    REMB0   0x000055       data     static L:\Télèmètre ER bouton\p16math.asm
+                    REMB1   0x000056       data     static L:\Télèmètre ER bouton\p16math.asm
+                     TEMP   0x000057       data     static L:\Télèmètre ER bouton\p16math.asm
+                LOOPCOUNT   0x000058       data     static L:\Télèmètre ER bouton\p16math.asm
+
+

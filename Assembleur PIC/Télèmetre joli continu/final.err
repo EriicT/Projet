@@ -1,0 +1,17 @@
+Warning[205] G:\TÈLËMETRE JOLI CONTINU\FINAL.ASM 19 : Found directive in column 1. (EXTERN)
+Warning[205] G:\TÈLËMETRE JOLI CONTINU\FINAL.ASM 20 : Found directive in column 1. (EXTERN)
+Message[302] G:\TÈLËMETRE JOLI CONTINU\FINAL.ASM 102 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] G:\TÈLËMETRE JOLI CONTINU\FINAL.ASM 104 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] G:\TÈLËMETRE JOLI CONTINU\FINAL.ASM 349 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] G:\TÈLËMETRE JOLI CONTINU\FINAL.ASM 355 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Warning[205] G:\TÈLËMETRE JOLI CONTINU\FINAL.ASM 412 : Found directive in column 1. (banksel)
+Message[302] G:\TÈLËMETRE JOLI CONTINU\FINAL.ASM 526 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] G:\TÈLËMETRE JOLI CONTINU\FINAL.ASM 532 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] G:\TÈLËMETRE JOLI CONTINU\FINAL.ASM 561 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] G:\TÈLËMETRE JOLI CONTINU\FINAL.ASM 567 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] G:\TÈLËMETRE JOLI CONTINU\FINAL.ASM 720 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] G:\TÈLËMETRE JOLI CONTINU\FINAL.ASM 722 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] G:\TÈLËMETRE JOLI CONTINU\FINAL.ASM 735 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] G:\TÈLËMETRE JOLI CONTINU\FINAL.ASM 736 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] G:\TÈLËMETRE JOLI CONTINU\FINAL.ASM 738 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] G:\TÈLËMETRE JOLI CONTINU\FINAL.ASM 748 : Register in operand not in bank 0.  Ensure that bank bits are correct.

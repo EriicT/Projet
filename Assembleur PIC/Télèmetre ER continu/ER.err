@@ -1,0 +1,15 @@
+Warning[205] L:\TÈLËMETRE ER CONTINU\ER.ASM 19 : Found directive in column 1. (EXTERN)
+Warning[205] L:\TÈLËMETRE ER CONTINU\ER.ASM 20 : Found directive in column 1. (EXTERN)
+Message[302] L:\TÈLËMETRE ER CONTINU\ER.ASM 101 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] L:\TÈLËMETRE ER CONTINU\ER.ASM 103 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] L:\TÈLËMETRE ER CONTINU\ER.ASM 361 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] L:\TÈLËMETRE ER CONTINU\ER.ASM 367 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] L:\TÈLËMETRE ER CONTINU\ER.ASM 497 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] L:\TÈLËMETRE ER CONTINU\ER.ASM 503 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] L:\TÈLËMETRE ER CONTINU\ER.ASM 532 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] L:\TÈLËMETRE ER CONTINU\ER.ASM 538 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] L:\TÈLËMETRE ER CONTINU\ER.ASM 691 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] L:\TÈLËMETRE ER CONTINU\ER.ASM 693 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] L:\TÈLËMETRE ER CONTINU\ER.ASM 707 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] L:\TÈLËMETRE ER CONTINU\ER.ASM 714 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] L:\TÈLËMETRE ER CONTINU\ER.ASM 722 : Register in operand not in bank 0.  Ensure that bank bits are correct.

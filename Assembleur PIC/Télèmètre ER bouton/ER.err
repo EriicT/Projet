@@ -1,0 +1,15 @@
+Warning[205] L:\TÈLËMËTRE ER BOUTON\ER.ASM 19 : Found directive in column 1. (EXTERN)
+Warning[205] L:\TÈLËMËTRE ER BOUTON\ER.ASM 20 : Found directive in column 1. (EXTERN)
+Message[302] L:\TÈLËMËTRE ER BOUTON\ER.ASM 98 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] L:\TÈLËMËTRE ER BOUTON\ER.ASM 100 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] L:\TÈLËMËTRE ER BOUTON\ER.ASM 361 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] L:\TÈLËMËTRE ER BOUTON\ER.ASM 367 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] L:\TÈLËMËTRE ER BOUTON\ER.ASM 497 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] L:\TÈLËMËTRE ER BOUTON\ER.ASM 503 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] L:\TÈLËMËTRE ER BOUTON\ER.ASM 532 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] L:\TÈLËMËTRE ER BOUTON\ER.ASM 538 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] L:\TÈLËMËTRE ER BOUTON\ER.ASM 691 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] L:\TÈLËMËTRE ER BOUTON\ER.ASM 693 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] L:\TÈLËMËTRE ER BOUTON\ER.ASM 707 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] L:\TÈLËMËTRE ER BOUTON\ER.ASM 714 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] L:\TÈLËMËTRE ER BOUTON\ER.ASM 722 : Register in operand not in bank 0.  Ensure that bank bits are correct.

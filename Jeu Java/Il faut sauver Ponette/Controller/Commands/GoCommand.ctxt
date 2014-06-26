@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.params=
+comment0.target=GoCommand()
+comment1.params=pPlayer
+comment1.target=void\ execute(Model.Player)
+comment1.text=\ \r\n\ Try\ to\ go\ to\ one\ direction.\ If\ there\ is\ an\ exit,\ enter\ the\ new\r\n\ room,\ otherwise\ print\ an\ error\ message.\r\n
+numComments=2

@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.params=pNameItem\ pDescription\ pWeight
+comment0.target=Beamer(java.lang.String,\ java.lang.String,\ int)
+comment0.text=\r\n\ Creates\ a\ Beamer\ with\ Item's\ Parameters\r\n
+comment1.params=
+comment1.target=boolean\ getCharged()
+comment1.text=\r\n\ Returns\ the\ charge\ of\ the\ Beamer\r\n
+comment2.params=pCharge
+comment2.target=void\ setCharge(boolean)
+comment2.text=\r\n\ Sets\ charge\ of\ the\ Beamer\r\n
+comment3.params=pSavedRoom
+comment3.target=void\ setSavedRoom(Model.Room.Room)
+comment3.text=\r\n\ Saves\ the\ Room\ of\ the\ charge\r\n
+comment4.params=
+comment4.target=Model.Room.Room\ getSavedRoom()
+comment4.text=\r\n\ Returns\ the\ Room\ Saved\r\n
+numComments=5

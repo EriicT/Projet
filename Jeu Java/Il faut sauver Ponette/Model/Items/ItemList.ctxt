@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.params=
+comment0.target=ItemList()
+comment0.text=\r\n\ Creates\ the\ inventory\ \:\ a\ HashMap\r\n
+comment1.params=pItemName
+comment1.target=Item\ getItem(java.lang.String)
+comment1.text=\r\n\ Returns\ the\ Item\ of\ the\ String\ Parameter\ from\ the\ HashMap\r\n\ Parameter\ \:\ String\r\n
+comment2.params=
+comment2.target=java.lang.String\ sGetStringInventory()
+comment2.text=\r\n\ Returns\ String\ Builder\ for\ the\ side\ JtextArea\ (\ Items\ )\r\n
+comment3.params=
+comment3.target=java.lang.String\ getStringInventory()
+comment3.text=\r\n\ Returns\ String\ Builder\ (\ Items\ )\r\n
+comment4.params=pItem
+comment4.target=void\ addItem(Item)
+comment4.text=\r\n\ Adds\ the\ Item\ to\ the\ Inventory\r\n\ Parameter\ \:\ Item\r\n
+comment5.params=pItem
+comment5.target=void\ removeItem(java.lang.String)
+comment5.text=\r\n\ Removes\ the\ Item\ from\ the\ Inventory\r\n\ Parameter\ \:\ Item\r\n
+comment6.params=
+comment6.target=boolean\ InventoryIsEmpty()
+comment6.text=\r\n\ Returns\ true/false\ to\ know\ if\ the\ Inventory\ is\ empty\r\n
+numComments=7

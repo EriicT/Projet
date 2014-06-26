@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Command()
+comment0.text=\r\n\ Create\ a\ command\ object.\ First\ and\ second\ word\ must\ be\ supplied,\ but\r\n\ either\ one\ (or\ both)\ can\ be\ null.\r\n\ @param\ firstWord\ The\ first\ word\ of\ the\ command.\ Null\ if\ the\ command\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ was\ not\ recognised.\r\n\ @param\ secondWord\ The\ second\ word\ of\ the\ command.\r\n
+comment1.params=
+comment1.target=java.lang.String\ getSecondWord()
+comment1.text=\r\n\ @return\ The\ second\ word\ of\ this\ command.\ Returns\ null\ if\ there\ was\ no\ \ second\ word.\r\n
+comment2.params=pString
+comment2.target=void\ setSecondWord(java.lang.String)
+comment2.text=\r\n\ Sets\ the\ parameter\ as\ Second\ Word\ \r\n
+comment3.params=
+comment3.target=boolean\ hasSecondWord()
+comment3.text=\r\n\ @return\ true\ if\ the\ command\ has\ a\ second\ word.\r\n
+comment4.params=pGameModel
+comment4.target=void\ setGameModel(Model.GameModel)
+comment5.params=pGameEngine
+comment5.target=void\ setGameEngine(Controller.GameEngine)
+comment6.params=pUserInterface
+comment6.target=void\ setUserInterface(View.UserInterface)
+comment7.params=player
+comment7.target=void\ execute(Model.Player)
+numComments=8

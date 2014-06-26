@@ -1,0 +1,473 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+U:\EIG 2004 TP1\LCD.uvproj
+Project File Date:  10/04/2013
+
+<h2>Output:</h2>
+Load "U:\\EIG 2004 TP1\\LCD.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Connection failed!, error code=&d
+Load "U:\\EIG 2004 TP1\\LCD.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Connection failed!, error code=&d
+Load "U:\\EIG 2004 TP1\\LCD.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Load "U:\\EIG 2004 TP1\\LCD.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+assembling LCD.asm...
+linking...
+Program Size: Code=1244 RO-data=0 RW-data=0 ZI-data=256  
+".\LCD.axf" - 0 Errors, 0 Warning(s).
+Load "U:\\EIG 2004 TP1\\LCD.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Load "U:\\EIG 2004 TP1\\LCD.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+assembling LCD.asm...
+linking...
+Program Size: Code=1244 RO-data=0 RW-data=0 ZI-data=256  
+".\LCD.axf" - 0 Errors, 0 Warning(s).
+Load "U:\\EIG 2004 TP1\\LCD.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+assembling LCD.asm...
+LCD.asm(156): error: A1180E: Missing close quote
+LCD.asm(157): error: A1137E: Unexpected characters at end of line
+".\LCD.axf" - 2 Errors, 0 Warning(s).
+Target not created
+Load "U:\\EIG 2004 TP1\\LCD.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Failed!
+Build target 'Target 1'
+assembling LCD.asm...
+linking...
+Program Size: Code=1244 RO-data=0 RW-data=0 ZI-data=256  
+".\LCD.axf" - 0 Errors, 0 Warning(s).
+Load "U:\\EIG 2004 TP1\\LCD.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Load "U:\\EIG 2004 TP1\\LCD.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+assembling LCD.asm...
+linking...
+Program Size: Code=1248 RO-data=0 RW-data=0 ZI-data=256  
+".\LCD.axf" - 0 Errors, 0 Warning(s).
+Load "U:\\EIG 2004 TP1\\LCD.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+assembling LCD.asm...
+LCD.asm(234): error: A1180E: Missing close quote
+".\LCD.axf" - 1 Errors, 0 Warning(s).
+Target not created
+Build target 'Target 1'
+assembling LCD.asm...
+LCD.asm(234): error: A1152E: Unexpected operator
+".\LCD.axf" - 1 Errors, 0 Warning(s).
+Target not created
+Build target 'Target 1'
+assembling LCD.asm...
+linking...
+Program Size: Code=1248 RO-data=0 RW-data=0 ZI-data=256  
+".\LCD.axf" - 0 Errors, 0 Warning(s).
+Load "U:\\EIG 2004 TP1\\LCD.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Load "U:\\EIG 2004 TP1\\LCD.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+assembling LCD.asm...
+linking...
+Program Size: Code=1248 RO-data=0 RW-data=0 ZI-data=256  
+".\LCD.axf" - 0 Errors, 0 Warning(s).
+Load "U:\\EIG 2004 TP1\\LCD.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+assembling LCD.asm...
+linking...
+Program Size: Code=1248 RO-data=0 RW-data=0 ZI-data=256  
+".\LCD.axf" - 0 Errors, 0 Warning(s).
+Load "U:\\EIG 2004 TP1\\LCD.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+assembling LCD.asm...
+LCD.asm(234): error: A1152E: Unexpected operator
+".\LCD.axf" - 1 Errors, 0 Warning(s).
+Target not created
+Build target 'Target 1'
+assembling LCD.asm...
+linking...
+Program Size: Code=1248 RO-data=0 RW-data=0 ZI-data=256  
+".\LCD.axf" - 0 Errors, 0 Warning(s).
+Load "U:\\EIG 2004 TP1\\LCD.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Load "U:\\EIG 2004 TP1\\LCD.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+assembling LCD.asm...
+linking...
+Program Size: Code=1248 RO-data=0 RW-data=0 ZI-data=256  
+".\LCD.axf" - 0 Errors, 0 Warning(s).
+Load "U:\\EIG 2004 TP1\\LCD.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+assembling LCD.asm...
+linking...
+Program Size: Code=1244 RO-data=0 RW-data=0 ZI-data=256  
+".\LCD.axf" - 0 Errors, 0 Warning(s).
+Build target 'Target 1'
+assembling LCD.asm...
+LCD.asm(236): error: A1517E: Unexpected operator equal to or equivalent to =
+".\LCD.axf" - 1 Errors, 0 Warning(s).
+Target not created
+Build target 'Target 1'
+assembling LCD.asm...
+linking...
+Program Size: Code=1248 RO-data=0 RW-data=0 ZI-data=256  
+".\LCD.axf" - 0 Errors, 0 Warning(s).
+Load "U:\\EIG 2004 TP1\\LCD.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+assembling LCD.asm...
+linking...
+Program Size: Code=1248 RO-data=0 RW-data=0 ZI-data=256  
+".\LCD.axf" - 0 Errors, 0 Warning(s).
+Load "U:\\EIG 2004 TP1\\LCD.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+assembling LCD.asm...
+linking...
+Program Size: Code=1248 RO-data=0 RW-data=0 ZI-data=256  
+".\LCD.axf" - 0 Errors, 0 Warning(s).
+Load "U:\\EIG 2004 TP1\\LCD.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+assembling LCD.asm...
+linking...
+Program Size: Code=1240 RO-data=0 RW-data=0 ZI-data=256  
+".\LCD.axf" - 0 Errors, 0 Warning(s).
+Load "U:\\EIG 2004 TP1\\LCD.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+assembling LCD.asm...
+LCD.asm(252): error: A1516E: Bad symbol 'WAIT', not defined or external
+".\LCD.axf" - 1 Errors, 0 Warning(s).
+Target not created
+Build target 'Target 1'
+assembling LCD.asm...
+linking...
+Program Size: Code=1244 RO-data=0 RW-data=0 ZI-data=256  
+".\LCD.axf" - 0 Errors, 0 Warning(s).
+Load "U:\\EIG 2004 TP1\\LCD.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+assembling LCD.asm...
+linking...
+Program Size: Code=1248 RO-data=0 RW-data=0 ZI-data=256  
+".\LCD.axf" - 0 Errors, 0 Warning(s).
+Load "U:\\EIG 2004 TP1\\LCD.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Load "U:\\EIG 2004 TP1\\LCD.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+assembling LCD.asm...
+linking...
+Program Size: Code=1248 RO-data=0 RW-data=0 ZI-data=256  
+".\LCD.axf" - 0 Errors, 0 Warning(s).
+Load "U:\\EIG 2004 TP1\\LCD.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+assembling LCD.asm...
+linking...
+Program Size: Code=1244 RO-data=0 RW-data=0 ZI-data=256  
+".\LCD.axf" - 0 Errors, 0 Warning(s).
+Load "U:\\EIG 2004 TP1\\LCD.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+assembling LCD.asm...
+linking...
+Program Size: Code=1244 RO-data=0 RW-data=0 ZI-data=256  
+".\LCD.axf" - 0 Errors, 0 Warning(s).
+Load "U:\\EIG 2004 TP1\\LCD.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+assembling LCD.asm...
+LCD.asm(235): error: A1647E: Bad register name symbol, expected Integer register
+".\LCD.axf" - 1 Errors, 0 Warning(s).
+Target not created
+Build target 'Target 1'
+assembling LCD.asm...
+linking...
+Program Size: Code=1248 RO-data=0 RW-data=0 ZI-data=256  
+".\LCD.axf" - 0 Errors, 0 Warning(s).
+Load "U:\\EIG 2004 TP1\\LCD.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+assembling LCD.asm...
+linking...
+Program Size: Code=1244 RO-data=0 RW-data=0 ZI-data=256  
+".\LCD.axf" - 0 Errors, 0 Warning(s).
+Load "U:\\EIG 2004 TP1\\LCD.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+assembling LCD.asm...
+linking...
+Program Size: Code=1244 RO-data=0 RW-data=0 ZI-data=256  
+".\LCD.axf" - 0 Errors, 0 Warning(s).
+Build target 'Target 1'
+assembling LCD.asm...
+linking...
+Program Size: Code=1244 RO-data=0 RW-data=0 ZI-data=256  
+".\LCD.axf" - 0 Errors, 0 Warning(s).
+Load "U:\\EIG 2004 TP1\\LCD.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Rebuild target 'Target 1'
+assembling Startup.s...
+assembling LCD.asm...
+linking...
+Program Size: Code=1248 RO-data=0 RW-data=0 ZI-data=256  
+".\LCD.axf" - 0 Errors, 0 Warning(s).
+Build target 'Target 1'
+assembling LCD.asm...
+linking...
+Program Size: Code=1248 RO-data=0 RW-data=0 ZI-data=256  
+".\LCD.axf" - 0 Errors, 0 Warning(s).
+Load "U:\\EIG 2004 TP1\\LCD.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+assembling LCD.asm...
+linking...
+Program Size: Code=1248 RO-data=0 RW-data=0 ZI-data=256  
+".\LCD.axf" - 0 Errors, 0 Warning(s).
+Load "U:\\EIG 2004 TP1\\LCD.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Load "U:\\EIG 2004 TP1\\LCD.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Connection failed!, error code=&d
+Build target 'Target 1'
+assembling LCD.asm...
+linking...
+Program Size: Code=1248 RO-data=0 RW-data=0 ZI-data=256  
+".\LCD.axf" - 0 Errors, 0 Warning(s).
+Load "U:\\EIG 2004 TP1\\LCD.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+assembling LCD.asm...
+linking...
+Program Size: Code=1244 RO-data=0 RW-data=0 ZI-data=256  
+".\LCD.axf" - 0 Errors, 0 Warning(s).
+Load "U:\\EIG 2004 TP1\\LCD.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+assembling LCD.asm...
+LCD.asm(316): warning: A1581W: Added 2 bytes of padding at address 0x26e
+linking...
+Program Size: Code=1300 RO-data=0 RW-data=0 ZI-data=256  
+".\LCD.axf" - 0 Errors, 1 Warning(s).
+Build target 'Target 1'
+assembling LCD.asm...
+LCD.asm(317): warning: A1581W: Added 2 bytes of padding at address 0x26e
+linking...
+Program Size: Code=1300 RO-data=0 RW-data=0 ZI-data=256  
+".\LCD.axf" - 0 Errors, 1 Warning(s).
+Load "U:\\EIG 2004 TP1\\LCD.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+assembling LCD.asm...
+LCD.asm(318): warning: A1581W: Added 2 bytes of padding at address 0x26e
+linking...
+Program Size: Code=1300 RO-data=0 RW-data=0 ZI-data=256  
+".\LCD.axf" - 0 Errors, 1 Warning(s).
+Load "U:\\EIG 2004 TP1\\LCD.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+assembling LCD.asm...
+"LCD.asm" - 0 Errors, 0 Warning(s).
+Build target 'Target 1'
+assembling LCD.asm...
+linking...
+Program Size: Code=1244 RO-data=0 RW-data=0 ZI-data=256  
+".\LCD.axf" - 0 Errors, 0 Warning(s).
+Load "U:\\EIG 2004 TP1\\LCD.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'Target 1'
+assembling LCD.asm...
+linking...
+Program Size: Code=1244 RO-data=0 RW-data=0 ZI-data=256  
+".\LCD.axf" - 0 Errors, 0 Warning(s).
+Load "U:\\EIG 2004 TP1\\LCD.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Rebuild target 'Target 1'
+assembling Startup.s...
+assembling LCD.asm...
+LCD.asm(228): error: A1108E: Multiply defined symbol 'boucle'
+LCD.asm(229): error: A1110E: Expected constant expression
+".\LCD.axf" - 2 Errors, 0 Warning(s).
+Target not created
+Rebuild target 'Target 1'
+assembling Startup.s...
+assembling LCD.asm...
+LCD.asm(229): error: A1110E: Expected constant expression
+".\LCD.axf" - 1 Errors, 0 Warning(s).
+Target not created
+Rebuild target 'Target 1'
+assembling Startup.s...
+assembling LCD.asm...
+LCD.asm(293): warning: A1581W: Added 2 bytes of padding at address 0x23e
+linking...
+Program Size: Code=1252 RO-data=0 RW-data=0 ZI-data=256  
+".\LCD.axf" - 0 Errors, 1 Warning(s).
+Load "U:\\EIG 2004 TP1\\LCD.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Rebuild target 'Target 1'
+assembling Startup.s...
+assembling LCD.asm...
+LCD.asm(252): error: A1163E: Unknown opcode R0,#0x00 , expecting opcode or Macro
+".\LCD.axf" - 1 Errors, 0 Warning(s).
+Target not created
+Rebuild target 'Target 1'
+assembling Startup.s...
+assembling LCD.asm...
+LCD.asm(298): warning: A1581W: Added 2 bytes of padding at address 0x246
+linking...
+Program Size: Code=1260 RO-data=0 RW-data=0 ZI-data=256  
+".\LCD.axf" - 0 Errors, 1 Warning(s).
+Load "U:\\EIG 2004 TP1\\LCD.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Rebuild target 'Target 1'
+assembling Startup.s...
+assembling LCD.asm...
+LCD.asm(293): warning: A1581W: Added 2 bytes of padding at address 0x23e
+linking...
+Program Size: Code=1252 RO-data=0 RW-data=0 ZI-data=256  
+".\LCD.axf" - 0 Errors, 1 Warning(s).
+Load "U:\\EIG 2004 TP1\\LCD.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Rebuild target 'Target 1'
+assembling Startup.s...
+assembling LCD.asm...
+LCD.asm(293): warning: A1581W: Added 2 bytes of padding at address 0x23e
+linking...
+Program Size: Code=1252 RO-data=0 RW-data=0 ZI-data=256  
+".\LCD.axf" - 0 Errors, 1 Warning(s).
+Load "U:\\EIG 2004 TP1\\LCD.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Done.
+Verify OK.

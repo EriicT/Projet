@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.params=pPlayerName\ pPlayerMaxWeight\ pCurrentRoom
+comment0.target=Player(java.lang.String,\ int,\ Room.Room)
+comment0.text=\r\n\ Initializes\ the\ Player\ with\ the\ paramater\ of\ the\ Moving\ Character\r\n
+comment1.params=
+comment1.target=java.util.Stack\ getWalkthroughRoom()
+comment1.text=\r\n\ Returns\ the\ Stack\r\n
+comment2.params=
+comment2.target=void\ actualiseWalkthroughRoom()
+comment2.text=\r\n\ Adds\ the\ Current\ Room\ in\ the\ Stack\r\n
+comment3.params=
+comment3.target=Room.Room\ getPreviousRoom()
+comment3.text=\r\n\ Returns\ et\ removes\ the\ last\ Room\ of\ the\ Stack\r\n
+comment4.params=
+comment4.target=void\ removeWalkthroughRoom()
+comment4.text=\r\n\ Removes\ the\ Rooms\ until\ the\ Stack\ is\ empty\r\n
+comment5.params=
+comment5.target=Room.Room\ lookPreviousRoom()
+comment5.text=\r\n\ Returns\ the\ last\ Room\ of\ the\ Stack\r\n
+numComments=6

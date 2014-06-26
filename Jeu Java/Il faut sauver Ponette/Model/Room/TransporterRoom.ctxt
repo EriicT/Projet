@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=pDescription\ pImage\ pLongDescription\ pTrapDoor
+comment0.target=TransporterRoom(java.lang.String,\ java.lang.String,\ java.lang.String,\ boolean)
+comment0.text=\r\n\ Creates\ the\ Transporter\ Room\r\n
+comment1.params=direction
+comment1.target=Room\ getExit(java.lang.String)
+comment1.text=\r\n\ Overwrite\ the\ method\ getExit\r\n
+numComments=2

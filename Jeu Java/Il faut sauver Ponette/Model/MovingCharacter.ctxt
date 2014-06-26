@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.params=pCharacterName\ pCharacterMaxWeight\ pCurrentRoom
+comment0.target=MovingCharacter(java.lang.String,\ int,\ Room.Room)
+comment0.text=\r\n\ Initalizes\ the\ Moving\ Character\ with\ the\ parameters\ of\ the\ Character\r\n
+comment1.params=pRoom
+comment1.target=void\ startRoom(Room.Room)
+comment1.text=\r\n\ Parameter\ \:\ Room\r\n\ Sets\ the\ Character\ first\ Room\r\n
+comment2.params=direction
+comment2.target=void\ moveCharacter(java.lang.String)
+comment2.text=\r\n\ Method\ to\ move\ the\ Character\r\n\ Parameter\ \:\ direction\ of\ the\ exit\r\n
+numComments=3

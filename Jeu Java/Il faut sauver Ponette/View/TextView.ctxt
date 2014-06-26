@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.params=pGameModel\ pShow\ pParser
+comment0.target=TextView(Model.GameModel,\ UserInterface,\ Controller.Commands.Parser)
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ TextView\r\n
+comment1.params=pString
+comment1.target=void\ show(java.lang.String)
+comment2.params=pString
+comment2.target=void\ iShow(java.lang.String)
+comment3.params=pepitoString
+comment3.target=void\ pShow(java.lang.String)
+comment4.params=
+comment4.target=void\ printWelcome()
+comment5.params=
+comment5.target=void\ printLocationInfo()
+comment6.params=
+comment6.target=void\ printLongLocationInfo()
+comment7.params=
+comment7.target=void\ printQuit()
+comment8.params=
+comment8.target=void\ printHelp()
+comment9.params=o\ arg
+comment9.target=void\ update(java.util.Observable,\ java.lang.Object)
+numComments=10

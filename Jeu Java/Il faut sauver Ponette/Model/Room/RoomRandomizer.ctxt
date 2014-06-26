@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=pHashMapRoom
+comment0.target=RoomRandomizer(java.util.HashMap)
+comment0.text=\r\n\ Creates\ a\ list\ of\ Rooms\ from\ a\ HashMap\ Parameter\r\n\ Parameter\ \:\ HashMap\r\n
+comment1.params=
+comment1.target=Room\ nextRoom()
+comment1.text=\r\n\ Create\ the\ nextRoom\ from\ Random\ princip\r\n
+numComments=2

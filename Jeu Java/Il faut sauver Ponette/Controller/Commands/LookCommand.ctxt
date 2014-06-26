@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.params=
+comment0.target=LookCommand()
+comment1.params=pPlayer
+comment1.target=void\ execute(Model.Player)
+numComments=2

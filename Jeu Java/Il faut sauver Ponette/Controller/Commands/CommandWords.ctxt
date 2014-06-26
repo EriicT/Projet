@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.params=
+comment0.target=CommandWords()
+comment0.text=\r\n\ Create\ the\ hashMap\ and\ Store\ all\ the\ commands\ of\ the\ game\r\n
+comment1.params=commandWord
+comment1.target=Command\ getCommandWord(java.lang.String)
+comment2.params=aString
+comment2.target=boolean\ isCommand(java.lang.String)
+comment2.text=\r\n\ Check\ whether\ a\ given\ String\ is\ a\ valid\ command\ word.\ \r\n\ @return\ true\ if\ a\ given\ string\ is\ a\ valid\ command,\r\n\ false\ if\ it\ isn't.\r\n
+comment3.params=
+comment3.target=java.lang.String\ showAll()
+comment3.text=\r\n\ returns\ a\ String\ of\ all\ valid\ commands.\r\n\ \ \ \ \ \r\n\ \ \ \ public\ String\ getCommandList()\ \r\n\ \ \ \ {\r\n\ \ \ \ \ \ \ \ StringBuilder\ validCommands\ \=\ new\ StringBuilder();\r\n\ \ \ \ \ \ \ \ for(String\ command\ \:\ validCommands.keySet())\ {\r\n\ \ \ \ \ \ \ \ \ \ \ validCommands.append(\ command\ +\ "\ \ //\ \ "\ );\r\n\ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ return\ "You\ can\ "\ +\ validCommands.toString();\r\n\ \ \ \ }\r\n
+numComments=4

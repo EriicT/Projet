@@ -1,0 +1,1456 @@
+MPASM  5.43                         FINAL.ASM   6-25-2013  8:46:47         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00001 ;********************************************************************************
+                      00002 
+                      00003                 LIST P=16F877A ; directive qui definit le processeur utilise
+                      00004                 #include <P16F877A.INC> ; fichier de definition des constantes
+                      00001         LIST
+                      00002 
+                      00003 ;==========================================================================
+                      00004 ;  MPASM PIC16F877A processor include
+                      00005 ; 
+                      00006 ;  (c) Copyright 1999-2011 Microchip Technology, All rights reserved
+                      00007 ;==========================================================================
+                      00008 
+                      00564         LIST
+                      00005 
+                      00006 ;******************************************************************************
+                      00007 
+                      00008 ; BITS DE CONFIGURATION
+                      00009 
+                      00010 ;******************************************************************************
+                      00011 
+2007   3F7A           00012                 __CONFIG _HS_OSC & _WDT_OFF & _CP_OFF & _CPD_OFF & _LVP_OFF
+                      00013 
+                      00014 ;********************************************************************************
+                      00015 ; DEFINITIIONS DE VARIABLE *
+                      00016 
+                      00017 ;********************************************************************************
+  000000CD            00018 duree EQU 0xCD; variable de duree de 50 µs ( 205 )
+Warning[205]: Found directive in column 1. (EXTERN)
+  0000                00019 EXTERN  LCDInit, temp_wr, d_write, i_write, LCDLine_1, LCDLine_2        ;importation des fonctions d'aff
+                            ichage du LCD.
+Warning[205]: Found directive in column 1. (EXTERN)
+  0000                00020 EXTERN  UMUL0808L, UDIV1608L, AARGB0, AARGB1, BARGB0                            ;importation des fonctio
+                            ns de calculs pour l'équation de la distanc             
+  00000046            00021 coeff           EQU             d'70'
+                      00022 variables       UDATA   0x30            ;Déclaration de la section contenant des variables non initialis
+                            ées.
+  000000FF            00023 blanc   EQU 0xFF ; variable de duree de 256 µs
+  00000021            00024 adblanc EQU 0x21 ; adresse d'un registre vide qui servira de deompte
+                      00025 
+  0000000F            00026 repetition EQU 0x0F ; valeur du temsp de répétition
+  00000022            00027 adrepetition EQU 0x22 ; adresse de la valeur 
+                      00028 #DEFINE signal PORTE,2
+                      00029 #define selectRB0       PORTB,0         ;Push-button RB0 on PCB
+                      00030 #define selectRA4 PORTA,4               ;Push-button RA4 on PCB
+                      00031 
+                      00032 
+                      00033 
+                      00034 ;******************************;
+                      00035 ; Réservation de la mémoire à  ;
+                      00036 ;  partir de l'adresse 0x30    ;
+                      00037 ;******************************;
+                      00038 
+0030                  00039 ptr_pos         RES     1                       ;Réservation de la mémoire (à l'adresse 0x30) pour la va
+MPASM  5.43                         FINAL.ASM   6-25-2013  8:46:47         PAGE  2
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                            riable "ptr_pos".
+0031                  00040 ptr_count       RES     1                       ;Réservation de la mémoire (à l'adresse 0x31) pour la va
+                            riable "ptr_count".
+0032                  00041 temp_1          RES     1
+0033                  00042 temp_2          RES     1
+0034                  00043 temp_3          RES     1
+0035                  00044 cmd_byte        RES     1
+0036                  00045 temperature     RES     1
+0037                  00046 LSD                     RES     1
+0038                  00047 MsD                     RES     1
+0039                  00048 MSD                     RES     1
+003A                  00049 seconds         RES     1
+003B                  00050 minutes         RES     1
+003C                  00051 hours           RES     1
+                      00052 
+003D                  00053 NumH            RES             1
+003E                  00054 NumL            RES     1
+003F                  00055 TenK            RES     1
+0040                  00056 Thou            RES     1
+0041                  00057 Hund            RES     1
+0042                  00058 Tens            RES     1
+0043                  00059 Ones            RES     1
+                      00060 
+                      00061 
+                      00062 ;******************************;
+                      00063 ;    Fin de la réservation     ;
+                      00064 ;******************************;
+                      00065 ;********************************************************************************
+                      00066 ; DEMARRAGE SUR RESET *
+                      00067 ;********************************************************************************
+                      00068                 org 0x0 ; Adresse de depart apres reset
+0000   2???           00069                 goto debut      
+                      00070 
+                      00071                 org 0x10 ; adresse de debut du programme
+                      00072 PROG1   CODE
+                      00073 
+                      00074 stan_t  CODE    0x100                   ;start standard table at ROM 0x100      
+0100                  00075 stan_table                                              ;table for standard code
+0100   0782           00076                         addwf   PCL,f
+0101   3420 3420 3420 00077                 dt      "   Distance =   ";0
+       3444 3469 3473 
+       3474 3461 346E 
+       3463 3465 3420 
+       343D 3420 3420 
+       3420 
+0111   3450 3472 346F 00078                 dt      "Prog Menu Credit"  ;16
+       3467 3420 344D 
+       3465 346E 3475 
+       3420 3443 3472 
+       3465 3464 3469 
+       3474 
+0121   343C 3452 3441 00079                 dt      "<RA4>      <RB0>"      ;32
+       3434 343E 3420 
+MPASM  5.43                         FINAL.ASM   6-25-2013  8:46:47         PAGE  3
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+       3420 3420 3420 
+       3420 3420 343C 
+       3452 3442 3430 
+       343E 
+0131   3420 3420 3420 00080                 dt      "          mm    "      ;48
+       3420 3420 3420 
+       3420 3420 3420 
+       3420 346D 346D 
+       3420 3420 3420 
+       3420 
+0141   3420 3443 3465 00081                 dt  " Ce projet vous "  ;64
+       3420 3470 3472 
+       346F 346A 3465 
+       3474 3420 3476 
+       346F 3475 3473 
+       3420 
+0151   3465 3473 3474 00082                 dt  "est presente par"  ; 80
+       3420 3470 3472 
+       3465 3473 3465 
+       346E 3474 3465 
+       3420 3470 3461 
+       3472 
+0161   3420 3446 346C 00083                 dt      " Florian Silva  "  ; 96
+       346F 3472 3469 
+       3461 346E 3420 
+       3453 3469 346C 
+       3476 3461 3420 
+       3420 
+0171   3420 3465 3474 00084                 dt      " et Eric Tran   "  ; 112
+       3420 3445 3472 
+       3469 3463 3420 
+       3454 3472 3461 
+       346E 3420 3420 
+       3420 
+0181   3420 3461 3476 00085                 dt      " avec l'aide de "  ; 128
+       3465 3463 3420 
+       346C 3427 3461 
+       3469 3464 3465 
+       3420 3464 3465 
+       3420 
+0191   3443 3468 3472 00086                 dt      "Christian Ripoll"  ;144
+       3469 3473 3474 
+       3469 3461 346E 
+       3420 3452 3469 
+       3470 346F 346C 
+       346C 
+01A1   3446 3465 3472 00087                 dt  "Ferial Virolleau"  ;160
+       3469 3461 346C 
+       3420 3456 3469 
+       3472 346F 346C 
+       346C 3465 3461 
+       3475 
+01B1   3420 3465 3474 00088                 dt  " et Avid Naemi  "  ; 176
+MPASM  5.43                         FINAL.ASM   6-25-2013  8:46:47         PAGE  4
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+       3420 3441 3476 
+       3469 3464 3420 
+       344E 3461 3465 
+       346D 3469 3420 
+       3420 
+                      00089 
+                      00090 
+                      00091                 
+01C1                  00092 debut
+                      00093 
+                      00094 ;********************************************************************************
+                      00095 ; PROGRAMME PRINCIPAL *
+                      00096 ;*******************************************************************************
+01C1   2???           00097                         call init
+                      00098         
+                      00099 
+01C2   1683 1303      00100                 banksel TXSTA                   ;initialize USART               
+01C4   30A4           00101                 movlw   B'10100100'             ;Master mode, 8-bit, Async, High speed
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+01C5   0098           00102                 movwf   TXSTA
+01C6   3019           00103                 movlw   .25                             ;9.6Kbaud @ 4MHz
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+01C7   0099           00104                 movwf   SPBRG
+01C8   1283 1303      00105                 banksel RCSTA
+01CA   3090           00106                 movlw   B'10010000'
+01CB   0098           00107                 movwf   RCSTA
+                      00108 
+                      00109 ;******************;
+                      00110 ; Mot de bienvenue ;
+                      00111 ;******************;   
+                      00112 
+01CC                  00113 menu       
+01CC   ???? ????      00114                 banksel ptr_pos                 ; Accès à l'adresse 0x30 (où se strouve la variable ptr_
+                            pos).
+01CE   3010           00115                 movlw   .16                             ; Envoi "   Microchip    " to LCD.
+01CF   00??           00116                 movwf   ptr_pos                 
+01D0   2???           00117                 call    stan_char_1             ; Appel du sous-programme d'affichage de la ligne 1.
+01D1   ???? ????      00118                 banksel ptr_pos
+01D3   3020           00119                 movlw   .32                             ;send "   Telemetre    " to LCD.
+01D4   00??           00120                 movwf   ptr_pos                 
+01D5   2???           00121                 call    stan_char_2             ; Appel du sous-programme d'affichage de la ligne 2. 
+01D6   2???           00122                 call    delay_1s                ; Attente pour permettre à l'utilisateur de lire l'affic
+                            hage.
+                      00123 
+                      00124 
+01D7                  00125 choix
+01D7   1806           00126                 BTFSC   selectRB0                       ;wait for RA4 release
+01D8   2???           00127                 goto    suite
+01D9   2???           00128                 goto    presentation
+                      00129 
+01DA                  00130 suite
+01DA   1A05           00131                 BTFSC   selectRA4                       ;wait for RA4 release
+01DB   2???           00132                 goto    choix
+MPASM  5.43                         FINAL.ASM   6-25-2013  8:46:47         PAGE  5
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+01DC   2???           00133                 goto    programme
+                      00134 
+                      00135 
+                      00136 
+01DD                  00137 programme 
+                      00138 
+                      00139         
+                      00140         
+01DD   110C           00141                         bcf PIR1,CCP1IF
+01DE   110B           00142                         bcf INTCON,TMR0IF
+01DF   0195           00143                         clrf CCPR1L
+01E0   0196           00144                         clrf CCPR1H
+01E1   018E           00145                         clrf TMR1L
+01E2   018F           00146                         clrf TMR1H
+01E3   1410           00147                         bsf T1CON,TMR1ON
+                      00148 
+                      00149 ; Premier créneau
+01E4   1509           00150                         bsf signal ; mise à1 de la sortie
+01E5   30CD           00151                         movlw duree ; Chargement de la duree dans le registre de travail
+01E6   0081           00152                         movwf TMR0 ; Chargement du registre de travail dans TMR0
+01E7                  00153 boucle_tmr1
+01E7   1D0B           00154                         btfss INTCON,TMR0IF ; Test bit T0IF de INTCON
+01E8   2???           00155                         goto boucle_tmr1 ; boucle d'attente si timer non nul
+01E9   110B           00156                         bcf INTCON,TMR0IF ; RAZ du drapeau
+01EA   1109           00157                         bcf signal ; mise ?0 de la sortie
+01EB   0081           00158                         movwf TMR0 ; Chargement du registre de travail dans TMR0
+01EC                  00159 boucle_tmr11
+01EC   1D0B           00160                         btfss INTCON,TMR0IF ; Test bit T0IF de INTCON
+01ED   2???           00161                         goto boucle_tmr11 ; boucle d'attente si timer non nul
+01EE   110B           00162                         bcf INTCON,TMR0IF ; RAZ du drapeau
+                      00163 
+                      00164 
+                      00165 
+                      00166 
+                      00167 
+                      00168 ; Deuxième créneau
+01EF   1509           00169                         bsf signal ; mise ?1 de la sortie
+01F0   30CD           00170                         movlw duree ; Chargement de la duree dans le registre de travail
+01F1   0081           00171                         movwf TMR0 ; Chargement du registre de travail dans TMR0
+01F2                  00172 boucle_tmr2
+01F2   1D0B           00173                         btfss INTCON,TMR0IF ; Test bit T0IF de INTCON
+01F3   2???           00174                         goto boucle_tmr2 ; boucle d'attente si timer non nul
+01F4   110B           00175                         bcf INTCON,TMR0IF ; RAZ du drapeau
+01F5   1109           00176                         bcf signal ; mise ?0 de la sortie
+                      00177                 
+01F6   0081           00178                         movwf TMR0 ; Chargement du registre de travail dans TMR0
+01F7                  00179 boucle_tmr22
+01F7   1D0B           00180                         btfss INTCON,TMR0IF ; Test bit T0IF de INTCON
+01F8   2???           00181                         goto boucle_tmr22 ; boucle d'attente si timer non nul
+01F9   110B           00182                         bcf INTCON,TMR0IF ; RAZ du drapeau
+                      00183 
+                      00184 
+                      00185 
+MPASM  5.43                         FINAL.ASM   6-25-2013  8:46:47         PAGE  6
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00186 ;Troisème créneau
+01FA   1509           00187                         bsf signal ; mise ?1 de la sortie
+01FB   30CD           00188                         movlw duree ; Chargement de la duree dans le registre de travail
+01FC   0081           00189                         movwf TMR0 ; Chargement du registre de travail dans TMR0
+01FD                  00190 boucle_tmr3
+01FD   1D0B           00191                         btfss INTCON,TMR0IF ; Test bit T0IF de INTCON
+01FE   2???           00192                         goto boucle_tmr3 ; boucle d'attente si timer non nul
+01FF   110B           00193                         bcf INTCON,TMR0IF ; RAZ du drapeau
+0200   1109           00194                         bcf signal ; mise ?1 de la sortie
+0201   0081           00195                         movwf TMR0 ; Chargement du registre de travail dans TMR0
+0202                  00196 boucle_tmr33
+0202   1D0B           00197                         btfss INTCON,TMR0IF ; Test bit T0IF de INTCON
+0203   2???           00198                         goto boucle_tmr33 ; boucle d'attente si timer non nul
+0204   110B           00199                         bcf INTCON,TMR0IF ; RAZ du drapeau
+                      00200 
+                      00201 
+                      00202 ; Quatrième créneau
+0205   1509           00203                         bsf signal ; mise ?1 de la sortie
+0206   30CD           00204                         movlw duree ; Chargement de la duree dans le registre de travail
+0207   0081           00205                         movwf TMR0 ; Chargement du registre de travail dans TMR0
+0208                  00206 boucle_tmr4
+0208   1D0B           00207                         btfss INTCON,TMR0IF ; Test bit T0IF de INTCON
+0209   2???           00208                         goto boucle_tmr4 ; boucle d'attente si timer non nul
+020A   110B           00209                         bcf INTCON,TMR0IF ; RAZ du drapeau
+020B   1109           00210                         bcf signal ; mise ?1 de la sortie               
+020C   0081           00211                         movwf TMR0 ; Chargement du registre de travail dans TMR0
+020D                  00212 boucle_tmr44
+020D   1D0B           00213                         btfss INTCON,TMR0IF ; Test bit T0IF de INTCON
+020E   2???           00214                         goto boucle_tmr44 ; boucle d'attente si timer non nul
+020F   110B           00215                         bcf INTCON,TMR0IF ; RAZ du drapeau
+                      00216 
+                      00217 
+                      00218 ; Cinquième créneau
+0210   1509           00219                         bsf signal ; mise ?1 de la sortie
+0211   30CD           00220                         movlw duree ; Chargement de la duree dans le registre de travail
+0212   0081           00221                         movwf TMR0 ; Chargement du registre de travail dans TMR0
+0213                  00222 boucle_tmr5
+0213   1D0B           00223                         btfss INTCON,TMR0IF ; Test bit T0IF de INTCON
+0214   2???           00224                         goto boucle_tmr5 ; boucle d'attente si timer non nul
+0215   110B           00225                         bcf INTCON,TMR0IF ; RAZ du drapeau
+0216   1109           00226                         bcf signal ; mise ?1 de la sortie               
+0217   0081           00227                         movwf TMR0 ; Chargement du registre de travail dans TMR0
+0218                  00228 boucle_tmr55
+0218   1D0B           00229                         btfss INTCON,TMR0IF ; Test bit T0IF de INTCON
+0219   2???           00230                         goto boucle_tmr55 ; boucle d'attente si timer non nul
+021A   110B           00231                         bcf INTCON,TMR0IF ; RAZ du drapeau
+                      00232 
+                      00233 
+                      00234 
+                      00235 
+                      00236                         
+                      00237 
+                      00238 
+MPASM  5.43                         FINAL.ASM   6-25-2013  8:46:47         PAGE  7
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00239                         
+                      00240   ;***************** RECEPTION ******************************  
+                      00241 
+021B                  00242 testflag                
+021B   1D0C           00243                         BTFSS PIR1,CCP1IF    ; test du port CCP1
+021C   2???           00244                         goto testflag
+                      00245 
+021D                  00246 interruption
+021D   1283 1303      00247                         banksel CCPR1H          ; rangement des valeurs high    
+021F   0816           00248                         movfw CCPR1H    
+0220   ???? ????      00249                         banksel AARGB0  
+0222   00??           00250                         movwf AARGB0
+                      00251 
+0223   1283 1303      00252                         banksel CCPR1L
+0225   0815           00253                         movfw CCPR1L            ; rangement des valeurs low
+0226   ???? ????      00254                         banksel AARGB1
+0228   00??           00255                         movwf AARGB1
+                      00256             
+0229   1283 1303      00257                         banksel PIR1
+022B   110C           00258                         bcf PIR1,CCP1IF       ; RAZ du flag
+                      00259 
+                      00260 ; **********  AFFICHAGE *******************
+                      00261 
+                      00262 ;************** CALCUL ET AFFICHAGE DE LA DISTANCE **************;
+                      00263 ;****************************************************************;
+                      00264 ;****************************************************************;
+                      00265 
+022C   3030           00266                 MOVLW   .48
+022D   00??           00267                 movwf ptr_pos
+022E   2???           00268                 call stan_char_2
+                      00269 
+022F   ???? ????      00270                 banksel ptr_pos
+0231   3000           00271                 movlw   .00                             ; Envoi "   Distance =   " to LCD. 
+0232   00??           00272                 movwf   ptr_pos
+0233   2???           00273                 call    stan_char_1             ; On affiche le mot "distance" sur la première ligne.
+                      00274 
+0234   ???? ????      00275                 banksel BARGB0          
+0236   3046           00276                 movlw   coeff                   ; Le contenu de "vitesse" est placé dans le registre W.
+0237   00??           00277                 movwf   BARGB0                  ; Le contenu du registre W est placé dans "BARGB0", notr
+                            e deuxième facteur.
+0238   120A           00278                 bcf             PCLATH,4                
+0239   158A           00279                 bsf             PCLATH,3
+                      00280 
+023A   2???           00281                 call    UDIV1608L  ;UMUL0808L            Appel de la fonction de multiplication.
+                      00282 
+023B   018A           00283                 clrf    PCLATH                                  
+023C   08??           00284                 movf    AARGB0,w                ; Les 8 bits de poid forts, du resulat, sont placés dans
+                             le registre W.
+023D   00??           00285                 movwf   NumH                    ; Le contenu du registre W est placé dans "NumH".
+023E   08??           00286                 movf    AARGB1,w                ; Les 8 bits de poid faible, du résultat, sont placés da
+                            ns le registre W.
+023F   00??           00287                 movwf   NumL                    ; Le contenu du registre W est placé dans "NumL".
+0240   2???           00288                 call    bin16_bcd               ; Appel ce la fonction de conversion des 16 bits en BCD.
+MPASM  5.43                         FINAL.ASM   6-25-2013  8:46:47         PAGE  8
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00289         
+                      00290                                                 
+                      00291         
+                      00292 
+                      00293 
+                      00294 ;**********************;
+                      00295 ;  Ajout de 3 espaces  ;
+                      00296 ; au début de la ligne ;
+                      00297 ;**********************;
+0241   2???           00298                 call LCDLine_2
+0242   3020           00299                 movlw   A' '    
+0243   00??           00300                 movwf   temp_wr
+0244   2???           00301                 call    d_write
+0245   3020           00302                 movlw   A' '
+0246   00??           00303                 movwf   temp_wr
+0247   2???           00304                 call    d_write
+0248   3020           00305                 movlw   A' '
+0249   00??           00306                 movwf   temp_wr
+024A   2???           00307                 call    d_write
+024B   3020           00308                 movlw   A' '    
+024C   00??           00309                 movwf   temp_wr
+024D   2???           00310                 call    d_write
+024E   3020           00311                 movlw   A' '    
+024F   00??           00312                 movwf   temp_wr
+0250   2???           00313                 call    d_write
+0251   3020           00314                 movlw   A' '    
+0252   00??           00315                 movwf   temp_wr
+0253   2???           00316                 call    d_write
+                      00317 
+                      00318 
+                      00319 ;************************;
+                      00320 ; Ecriture des centaines ;
+                      00321 ;************************;
+0254   08??           00322                 movf    Hund,w                  ; Le contenu de "Hund" est placé dans le registre W.
+0255   2???           00323                 call    bin_bcd                 ; Appel de la conversion en BCD.
+0256   08??           00324                 movf    LSD,w                   ; Le premier digit est placé dans le registre W.
+0257   00??           00325                 movwf   temp_wr                 ; Le contenu des W est rangé dans temp_wr, pour l'écritu
+                            re.
+0258   2???           00326                 call    d_write                 ; Appel de la fonction d'écriture. Les centaines seront 
+                            affichées.
+                      00327 
+                      00328 ;***********************;
+                      00329 ; Ecriture des dizaines ;
+                      00330 ;***********************;       
+0259   08??           00331                 movf    Tens,w                  
+025A   2???           00332                 call    bin_bcd
+025B   08??           00333                 movf    LSD,w                   
+025C   00??           00334                 movwf   temp_wr
+025D   2???           00335                 call    d_write
+                      00336 
+                      00337 ;*********************;
+                      00338 ; Ecriture des unités ;
+                      00339 ;*********************;
+MPASM  5.43                         FINAL.ASM   6-25-2013  8:46:47         PAGE  9
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+025E   08??           00340                 movf    Ones,w
+025F   2???           00341                 call    bin_bcd
+0260   08??           00342                 movf    LSD,w
+0261   00??           00343                 movwf   temp_wr
+0262   2???           00344                 call    d_write
+0263   1283 1303      00345                 banksel TXREG                   
+0265   300A           00346                 movlw   "\n"                    
+0266   0099           00347                 movwf   TXREG
+0267   1683 1303      00348                 banksel TXSTA
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0269   1C98           00349                 btfss   TXSTA,TRMT              
+026A   2???           00350                 goto    $-1
+026B   1283 1303      00351                 banksel TXREG                    
+026D   300D           00352                 movlw   "\r"                    
+026E   0099           00353                 movwf   TXREG
+026F   1683 1303      00354                 banksel TXSTA
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0271   1C98           00355                 btfss   TXSTA,TRMT              
+0272   2???           00356                 goto    $-1     
+0273   2???           00357                 call delay_1s
+0274   2???           00358                 call delay_1s
+                      00359 
+                      00360                 
+                      00361 
+0275   1806           00362                 BTFSC   selectRB0                       ;wait for RA4 release
+0276   2???           00363                 goto    programme
+0277   2???           00364                 goto    menu
+                      00365 
+                      00366 
+                      00367   ;************ Presentation
+                      00368  ;****************************
+                      00369 ;**********************************************
+0278                  00370 presentation 
+                      00371         
+0278   ???? ????      00372                 banksel ptr_pos
+027A   3040           00373                 MOVLW   .64
+027B   00??           00374                 movwf ptr_pos
+027C   2???           00375                 call stan_char_1
+027D   ???? ????      00376                 banksel ptr_pos
+027F   3050           00377                 MOVLW   .80
+0280   00??           00378                 movwf ptr_pos
+0281   2???           00379                 call stan_char_2
+                      00380 
+0282   2???           00381                 call delay_1s
+0283   2???           00382                 call delay_1s
+0284   2???           00383                 call delay_1s
+0285   2???           00384                 call delay_1s
+0286   2???           00385                 call delay_1s
+0287   2???           00386                 call delay_1s
+0288   2???           00387                 call delay_1s
+0289   2???           00388                 call delay_1s
+                      00389 
+                      00390 
+MPASM  5.43                         FINAL.ASM   6-25-2013  8:46:47         PAGE 10
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00391 
+                      00392 
+028A   ???? ????      00393                 banksel ptr_pos
+028C   3060           00394                 MOVLW   .96
+028D   00??           00395                 movwf ptr_pos
+028E   2???           00396                 call stan_char_1
+028F   ???? ????      00397                 banksel ptr_pos
+0291   3070           00398                 MOVLW   .112
+0292   00??           00399                 movwf ptr_pos
+0293   2???           00400                 call stan_char_2
+                      00401 
+0294   2???           00402                 call delay_1s
+0295   2???           00403                 call delay_1s
+0296   2???           00404                 call delay_1s
+0297   2???           00405                 call delay_1s
+0298   2???           00406                 call delay_1s
+0299   2???           00407                 call delay_1s
+029A   2???           00408                 call delay_1s
+029B   2???           00409                 call delay_1s
+                      00410 
+                      00411 
+Warning[205]: Found directive in column 1. (banksel)
+029C   ???? ????      00412 banksel ptr_pos
+029E   3060           00413                 MOVLW   .96
+029F   00??           00414                 movwf ptr_pos
+02A0   2???           00415                 call stan_char_1
+02A1   ???? ????      00416                 banksel ptr_pos
+02A3   3070           00417                 MOVLW   .112
+02A4   00??           00418                 movwf ptr_pos
+02A5   2???           00419                 call stan_char_2
+                      00420 
+02A6   2???           00421                 call delay_1s
+02A7   2???           00422                 call delay_1s
+02A8   2???           00423                 call delay_1s
+02A9   2???           00424                 call delay_1s
+02AA   2???           00425                 call delay_1s
+02AB   2???           00426                 call delay_1s
+02AC   2???           00427                 call delay_1s
+02AD   2???           00428                 call delay_1s
+                      00429 
+                      00430 
+                      00431 
+02AE   ???? ????      00432                 banksel ptr_pos
+02B0   3060           00433                 MOVLW   .96
+02B1   00??           00434                 movwf ptr_pos
+02B2   2???           00435                 call stan_char_1
+02B3   ???? ????      00436                 banksel ptr_pos
+02B5   3070           00437                 MOVLW   .112
+02B6   00??           00438                 movwf ptr_pos
+02B7   2???           00439                 call stan_char_2
+                      00440 
+                      00441         
+02B8   2???           00442                 call delay_1s
+MPASM  5.43                         FINAL.ASM   6-25-2013  8:46:47         PAGE 11
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+02B9   2???           00443                 call delay_1s
+02BA   2???           00444                 call delay_1s
+02BB   2???           00445                 call delay_1s
+02BC   2???           00446                 call delay_1s
+02BD   2???           00447                 call delay_1s
+02BE   2???           00448                 call delay_1s
+02BF   2???           00449                 call delay_1s
+                      00450 
+                      00451 
+02C0   ???? ????      00452                 banksel ptr_pos
+02C2   3080           00453                 MOVLW   .128
+02C3   00??           00454                 movwf ptr_pos
+02C4   2???           00455                 call stan_char_1
+02C5   ???? ????      00456                 banksel ptr_pos
+02C7   3090           00457                 MOVLW   .144
+02C8   00??           00458                 movwf ptr_pos
+02C9   2???           00459                 call stan_char_2
+                      00460 
+02CA   2???           00461                 call delay_1s
+02CB   2???           00462                 call delay_1s
+02CC   2???           00463                 call delay_1s
+02CD   2???           00464                 call delay_1s
+02CE   2???           00465                 call delay_1s
+02CF   2???           00466                 call delay_1s
+02D0   2???           00467                 call delay_1s
+02D1   2???           00468                 call delay_1s
+                      00469 
+                      00470 
+                      00471 
+02D2   ???? ????      00472                 banksel ptr_pos
+02D4   30A0           00473                 MOVLW   .160
+02D5   00??           00474                 movwf ptr_pos
+02D6   2???           00475                 call stan_char_1
+02D7   ???? ????      00476                 banksel ptr_pos
+02D9   30B0           00477                 MOVLW   .176
+02DA   00??           00478                 movwf ptr_pos
+02DB   2???           00479                 call stan_char_2
+                      00480 
+                      00481 
+                      00482                 
+02DC   1283 1303      00483                 banksel PORTB
+                      00484 
+02DE                  00485 la
+02DE   1806           00486                 BTFSC   selectRB0                       ;wait for RA4 release
+02DF   2???           00487                 goto    suite2
+02E0   2???           00488                 goto    presentation
+02E1                  00489 suite2
+02E1   1A05           00490                 BTFSC   selectRA4                       ;wait for RA4 release
+02E2   2???           00491                 goto    la
+02E3   2???           00492                 goto    menu
+                      00493                 
+                      00494 
+                      00495         
+MPASM  5.43                         FINAL.ASM   6-25-2013  8:46:47         PAGE 12
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00496 
+                      00497                 
+                      00498 ;************************** ROUTINES ******************************;
+                      00499 ;******************************************************************;
+                      00500 ;******************************************************************;
+                      00501                 
+                      00502 ;----Affihage des caractères sur la première ligne----
+                      00503 
+02E4                  00504 stan_char_1
+02E4   2???           00505                 call    LCDLine_1               ; Positionnement du cursor à la première ligne.
+02E5   ???? ????      00506                 banksel ptr_count               ; Accès la variable "ptr_count".
+02E7   3010           00507                 movlw   .16
+02E8   00??           00508                 movwf   ptr_count       ; "ptr_count" vaut 16 car il y a 16 caractères par linge.
+02E9                  00509 stan_next_char_1
+02E9   30??           00510                 movlw   HIGH stan_table
+02EA   008A           00511                 movwf   PCLATH
+02EB   08??           00512                 movf    ptr_pos,w               
+02EC   2???           00513                 call    stan_table              ; On se positionne à l'adresse où se trouve le caractère
+                             positionné à la valeur de "ptr_pos" dans la ligne du tableau d'éclaré.
+02ED   00??           00514                 movwf   temp_wr                 ; On place ce caractère dans "temp_wr" pour l'écrire.
+02EE   2???           00515                 call    d_write                 ; Appel de la fonction pour écrire le caractère.
+                      00516 
+02EF   ???? ????      00517                 banksel ptr_pos
+02F1   0A??           00518                 incf    ptr_pos,f               ; On se place sur le caractère suivant, dans notre ligne
+                             du tableau.
+02F2   0B??           00519                 decfsz  ptr_count,f             ; On se place sur le caractère suivant, dans notre ligne
+                             de l'afficheur.
+02F3   2???           00520                 goto    stan_next_char_1; On recommence jusqu'à ce que la ligne soit remplie.
+                      00521 
+02F4   1283 1303      00522                 banksel TXREG                   
+02F6   300A           00523                 movlw   "\n"                    
+02F7   0099           00524                 movwf   TXREG
+02F8   1683 1303      00525                 banksel TXSTA
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+02FA   1C98           00526                 btfss   TXSTA,TRMT              
+02FB   2???           00527                 goto    $-1
+02FC   1283 1303      00528                 banksel TXREG                    
+02FE   300D           00529                 movlw   "\r"                    
+02FF   0099           00530                 movwf   TXREG
+0300   1683 1303      00531                 banksel TXSTA
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0302   1C98           00532                 btfss   TXSTA,TRMT              
+0303   2???           00533                 goto    $-1     
+                      00534 
+                      00535         
+0304   0008           00536         return
+                      00537 
+                      00538 ;----Affihage des caractères sur la deuxième ligne--------------------------
+0305                  00539 stan_char_2     
+0305   2???           00540                 call    LCDLine_2                
+0306   ???? ????      00541                 banksel ptr_count
+0308   3010           00542                 movlw   .16                     
+0309   00??           00543                 movwf   ptr_count
+MPASM  5.43                         FINAL.ASM   6-25-2013  8:46:47         PAGE 13
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+030A                  00544 stan_next_char_2
+030A   30??           00545                 movlw   HIGH stan_table
+030B   008A           00546                 movwf   PCLATH
+030C   08??           00547                 movf    ptr_pos,w               
+030D   2???           00548                 call    stan_table              
+030E   00??           00549                 movwf   temp_wr                 
+030F   2???           00550                 call    d_write                 
+                      00551 
+0310   ???? ????      00552                 banksel ptr_pos                 
+0312   0A??           00553                 incf    ptr_pos,f
+0313   0B??           00554                 decfsz  ptr_count,f             
+0314   2???           00555                 goto    stan_next_char_2
+                      00556         
+0315   1283 1303      00557                 banksel TXREG                   
+0317   300A           00558                 movlw   "\n"                    
+0318   0099           00559                 movwf   TXREG
+0319   1683 1303      00560                 banksel TXSTA
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+031B   1C98           00561                 btfss   TXSTA,TRMT              
+031C   2???           00562                 goto    $-1
+031D   1283 1303      00563                 banksel TXREG                    
+031F   300D           00564                 movlw   "\r"                    
+0320   0099           00565                 movwf   TXREG
+0321   1683 1303      00566                 banksel TXSTA
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0323   1C98           00567                 btfss   TXSTA,TRMT              
+0324   2???           00568                 goto    $-1
+                      00569         
+                      00570 
+0325   0008           00571                 return
+                      00572 ;----------------------------------------------------------------------
+                      00573 
+                      00574 
+                      00575 ;------------------ 100ms Delay --------------------------------
+0326                  00576 delay_100ms
+0326   ???? ????      00577                 banksel temp_1
+0328   30FF           00578                 movlw   0xFF
+0329   00??           00579                 movwf   temp_1
+032A   3083           00580                 movlw   0x83
+032B   00??           00581                 movwf   temp_2
+                      00582 
+032C   0B??           00583                 decfsz  temp_1,f
+032D   2???           00584                 goto    $-1
+032E   0B??           00585                 decfsz  temp_2,f
+032F   2???           00586                 goto    $-3
+0330   0008           00587                 return
+                      00588 
+                      00589 ;---------------- 1s Delay -----------------------------------
+0331                  00590 delay_1s
+0331   ???? ????      00591                 banksel temp_1
+0333   30FF           00592                 movlw   0xFF
+0334   00??           00593                 movwf   temp_1
+0335   00??           00594                 movwf   temp_2
+MPASM  5.43                         FINAL.ASM   6-25-2013  8:46:47         PAGE 14
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0336   3005           00595                 movlw   0x05
+                      00596 
+0337   00??           00597                 movwf   temp_3
+0338   0B??           00598                 decfsz  temp_1,f
+0339   2???           00599                 goto    $-1
+033A   0B??           00600                 decfsz  temp_2,f
+033B   2???           00601                 goto    $-3
+033C   0B??           00602                 decfsz  temp_3,f
+033D   2???           00603                 goto    $-5
+033E   0008           00604                 return  
+                      00605 
+                      00606 ;---------------- Binary (8-bit) to BCD -----------------------
+                      00607 ;               255 = highest possible result
+033F                  00608 bin_bcd
+033F   ???? ????      00609                 banksel MSD
+0341   01??           00610                 clrf    MSD
+0342   01??           00611                 clrf    MsD
+0343   00??           00612                 movwf   LSD             ;move value to LSD
+0344                  00613 ghundreth       
+0344   3064           00614                 movlw   .100            ;subtract 100 from LSD
+0345   02??           00615                 subwf   LSD,w
+0346   1C03           00616                 btfss   STATUS,C        ;is value greater then 100
+0347   2???           00617                 goto    gtenth          ;NO goto tenths
+0348   00??           00618                 movwf   LSD             ;YES, move subtraction result into LSD
+0349   0A??           00619                 incf    MSD,f           ;increment hundreths
+034A   2???           00620                 goto    ghundreth       
+034B                  00621 gtenth
+034B   300A           00622                 movlw   .10             ;take care of tenths
+034C   02??           00623                 subwf   LSD,w
+034D   1C03           00624                 btfss   STATUS,C
+034E   2???           00625                 goto    over            ;finished conversion
+034F   00??           00626                 movwf   LSD
+0350   0A??           00627                 incf    MsD,f           ;increment tenths position
+0351   2???           00628                 goto    gtenth
+0352                  00629 over                            ;0 - 9, high nibble = 3 for LCD
+0352   08??           00630                 movf    MSD,w           ;get BCD values ready for LCD display
+0353   3A30           00631                 xorlw   0x30            ;convert to LCD digit
+0354   00??           00632                 movwf   MSD
+0355   08??           00633                 movf    MsD,w
+0356   3A30           00634                 xorlw   0x30            ;convert to LCD digit
+0357   00??           00635                 movwf   MsD
+0358   08??           00636                 movf    LSD,w
+0359   3A30           00637                 xorlw   0x30            ;convert to LCD digit
+035A   00??           00638                 movwf   LSD
+035B   3400           00639                 retlw   0
+                      00640 
+                      00641 
+                      00642 
+                      00643 ;---------------- Binary (16-bit) to BCD -----------------------
+                      00644 ;               xxx = highest possible result
+035C                  00645 bin16_bcd                       ; Takes number in NumH:NumL 
+                      00646                                 ; Returns decimal in TenK:Thou:Hund:Tens:Ones 
+035C   0E??           00647         swapf   NumH,w 
+MPASM  5.43                         FINAL.ASM   6-25-2013  8:46:47         PAGE 15
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+035D   390F           00648         andlw   0x0F             
+035E   3EF0           00649         addlw   0xF0             
+035F   00??           00650         movwf   Thou 
+0360   07??           00651         addwf   Thou,f 
+0361   3EE2           00652         addlw   0xE2 
+0362   00??           00653         movwf   Hund 
+0363   3E32           00654         addlw   0x32 
+0364   00??           00655         movwf   Ones 
+                      00656 
+0365   08??           00657         movf    NumH,w 
+0366   390F           00658         andlw   0x0F 
+0367   07??           00659         addwf   Hund,f 
+0368   07??           00660         addwf   Hund,f 
+0369   07??           00661         addwf   Ones,f 
+036A   3EE9           00662         addlw   0xE9 
+036B   00??           00663         movwf   Tens 
+036C   07??           00664         addwf   Tens,f 
+036D   07??           00665         addwf   Tens,f 
+                      00666 
+036E   0E??           00667         swapf   NumL,w 
+036F   390F           00668         andlw   0x0F 
+0370   07??           00669         addwf   Tens,f 
+0371   07??           00670         addwf   Ones,f 
+                      00671 
+0372   0D??           00672         rlf     Tens,f 
+0373   0D??           00673         rlf     Ones,f 
+0374   09??           00674         comf    Ones,f 
+0375   0D??           00675         rlf     Ones,f 
+                      00676 
+0376   08??           00677         movf    NumL,w 
+0377   390F           00678         andlw   0x0F 
+0378   07??           00679         addwf   Ones,f 
+0379   0D??           00680         rlf     Thou,f 
+                      00681 
+037A   3007           00682         movlw   0x07 
+037B   00??           00683         movwf   TenK 
+                      00684 
+037C   300A           00685         movlw   0x0A                             ; Ten 
+037D                  00686 Lb1: 
+037D   07??           00687         addwf   Ones,f 
+037E   03??           00688         decf    Tens,f 
+037F   1C03           00689         btfss   3,0 
+0380   2???           00690          goto   Lb1 
+0381                  00691 Lb2: 
+0381   07??           00692         addwf   Tens,f 
+0382   03??           00693         decf    Hund,f 
+0383   1C03           00694         btfss   3,0 
+0384   2???           00695          goto   Lb2 
+0385                  00696 Lb3: 
+0385   07??           00697         addwf   Hund,f 
+0386   03??           00698         decf    Thou,f 
+0387   1C03           00699         btfss   3,0 
+0388   2???           00700          goto   Lb3 
+MPASM  5.43                         FINAL.ASM   6-25-2013  8:46:47         PAGE 16
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0389                  00701 Lb4: 
+0389   07??           00702         addwf   Thou,f 
+038A   03??           00703         decf    TenK,f 
+038B   1C03           00704         btfss   3,0 
+038C   2???           00705          goto   Lb4 
+                      00706 
+038D   3400           00707         retlw   0
+                      00708 
+                      00709 
+                      00710 
+                      00711                 
+                      00712 ;********************************************************************************
+                      00713 ;                                               INITIALISATION *
+                      00714 ;********************************************************************************
+038E                  00715 init                                            ; initialisation du PORTE en sortie
+038E   1283 1303      00716                         BANKSEL PORTE           ; passage en banque 0
+0390   0189           00717                         clrf PORTE                      ; RAZ des bascules D du port B
+0391   1683 1303      00718                         BANKSEL TRISE           ; passage en banque 
+0393   3000           00719                         movlw b'000'        ; Chargement de la valeur  dans le registre de travail
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0394   0089           00720                         movwf TRISE             ; PORTE en sortie
+0395   30C8           00721                         movlw b'11001000'  ; Chargement de la valeur dans 
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0396   0081           00722                         movwf   OPTION_REG
+0397   1283 1303      00723                         BANKSEL PORTE ; retour en banque 0
+                      00724 
+                      00725 
+0399   1283 1303      00726                         banksel PORTC   ; passage en banque 0
+                      00727 
+                      00728                         ; Initialisation de Conditions d'interruption de CCP1 
+039B   3005           00729                         movlw b'00000101'       ; detection front montant 
+039C   0097           00730                         movwf CCP1CON
+                      00731 
+                      00732 
+                      00733             ; Initialisation du Port C, le Port RC2 en entrée
+039D   1683 1303      00734                         banksel TRISC           ; passage en banque 1
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+039F   1605           00735                         bsf     TRISA,4                 ;make switch RA4 an Input
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+03A0   1406           00736                         bsf     TRISB,0                 ;make switch RB0 an Input
+03A1   3004           00737                         movlw b'00000100'
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+03A2   0087           00738                         movwf TRISC
+                      00739       
+                      00740 
+                      00741 
+                      00742                         ; Mise à 0 des flags de PIR1 qui contient les flags
+03A3   1283 1303      00743                 banksel PORTC           
+03A5   018C           00744                         clrf PIR1                       
+                      00745                         
+                      00746                         ; Initialisation du Timer 1 : horloge interne et mise en route
+03A6   1090           00747                         bcf T1CON,TMR1CS
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+MPASM  5.43                         FINAL.ASM   6-25-2013  8:46:47         PAGE 17
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+03A7   1605           00748                         bsf     TRISA,4                 ;make switch RA4 an Input
+                      00749 
+                      00750                         
+03A8   2???           00751                         call LCDInit
+                      00752         
+                      00753 
+                      00754 
+03A9   0008           00755         return
+                      00756                         
+                      00757                                                 
+                      00758 ;***********************************************************************************
+                      00759 
+3F7A                  00760                         END
+MPASM  5.43                         FINAL.ASM   6-25-2013  8:46:47         PAGE 18
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+AARGB0                            00000000
+AARGB1                            00000000
+ACKDT                             00000005
+ACKEN                             00000004
+ACKSTAT                           00000006
+ADCON0                            0000001F
+ADCON1                            0000009F
+ADCS0                             00000006
+ADCS1                             00000007
+ADCS2                             00000006
+ADDEN                             00000003
+ADFM                              00000007
+ADIE                              00000006
+ADIF                              00000006
+ADON                              00000000
+ADRESH                            0000001E
+ADRESL                            0000009E
+BARGB0                            00000000
+BCLIE                             00000003
+BCLIF                             00000003
+BF                                00000000
+BRGH                              00000002
+C                                 00000000
+C1INV                             00000004
+C1OUT                             00000006
+C2INV                             00000005
+C2OUT                             00000007
+CCP1CON                           00000017
+CCP1IE                            00000002
+CCP1IF                            00000002
+CCP1M0                            00000000
+CCP1M1                            00000001
+CCP1M2                            00000002
+CCP1M3                            00000003
+CCP1X                             00000005
+CCP1Y                             00000004
+CCP2CON                           0000001D
+CCP2IE                            00000000
+CCP2IF                            00000000
+CCP2M0                            00000000
+CCP2M1                            00000001
+CCP2M2                            00000002
+CCP2M3                            00000003
+CCP2X                             00000005
+CCP2Y                             00000004
+CCPR1                             00000015
+CCPR1H                            00000016
+CCPR1L                            00000015
+CCPR2                             0000001B
+CCPR2H                            0000001C
+CCPR2L                            0000001B
+CHS0                              00000003
+CHS1                              00000004
+MPASM  5.43                         FINAL.ASM   6-25-2013  8:46:47         PAGE 19
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+CHS2                              00000005
+CIS                               00000003
+CKE                               00000006
+CKP                               00000004
+CM0                               00000000
+CM1                               00000001
+CM2                               00000002
+CMCON                             0000009C
+CMIE                              00000006
+CMIF                              00000006
+CREN                              00000004
+CSRC                              00000007
+CVR0                              00000000
+CVR1                              00000001
+CVR2                              00000002
+CVR3                              00000003
+CVRCON                            0000009D
+CVREN                             00000007
+CVROE                             00000006
+CVRR                              00000005
+D                                 00000005
+DATA_ADDRESS                      00000005
+DC                                00000001
+D_A                               00000005
+D_NOT_A                           00000005
+EEADR                             0000010D
+EEADRH                            0000010F
+EECON1                            0000018C
+EECON2                            0000018D
+EEDATA                            0000010C
+EEDATH                            0000010E
+EEIE                              00000004
+EEIF                              00000004
+EEPGD                             00000007
+F                                 00000001
+FERR                              00000002
+FSR                               00000004
+GCEN                              00000007
+GIE                               00000007
+GO                                00000002
+GO_DONE                           00000002
+GO_NOT_DONE                       00000002
+Hund                              00000041
+I2C_DATA                          00000005
+I2C_READ                          00000002
+I2C_START                         00000003
+I2C_STOP                          00000004
+IBF                               00000007
+IBOV                              00000005
+INDF                              00000000
+INTCON                            0000000B
+INTE                              00000004
+INTEDG                            00000006
+MPASM  5.43                         FINAL.ASM   6-25-2013  8:46:47         PAGE 20
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+INTF                              00000001
+IRP                               00000007
+LCDInit                           00000000
+LCDLine_1                         00000000
+LCDLine_2                         00000000
+LSD                               00000037
+Lb1                               0000037D
+Lb2                               00000381
+Lb3                               00000385
+Lb4                               00000389
+MSD                               00000039
+MsD                               00000038
+NOT_A                             00000005
+NOT_ADDRESS                       00000005
+NOT_BO                            00000000
+NOT_BOR                           00000000
+NOT_DONE                          00000002
+NOT_PD                            00000003
+NOT_POR                           00000001
+NOT_RBPU                          00000007
+NOT_RC8                           00000006
+NOT_T1SYNC                        00000002
+NOT_TO                            00000004
+NOT_TX8                           00000006
+NOT_W                             00000002
+NOT_WRITE                         00000002
+NumH                              0000003D
+NumL                              0000003E
+OBF                               00000006
+OERR                              00000001
+OPTION_REG                        00000081
+Ones                              00000043
+P                                 00000004
+PCFG0                             00000000
+PCFG1                             00000001
+PCFG2                             00000002
+PCFG3                             00000003
+PCL                               00000002
+PCLATH                            0000000A
+PCON                              0000008E
+PEIE                              00000006
+PEN                               00000002
+PIE1                              0000008C
+PIE2                              0000008D
+PIR1                              0000000C
+PIR2                              0000000D
+PORTA                             00000005
+PORTB                             00000006
+PORTC                             00000007
+PORTD                             00000008
+PORTE                             00000009
+PR2                               00000092
+PS0                               00000000
+MPASM  5.43                         FINAL.ASM   6-25-2013  8:46:47         PAGE 21
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+PS1                               00000001
+PS2                               00000002
+PSA                               00000003
+PSPIE                             00000007
+PSPIF                             00000007
+PSPMODE                           00000004
+R                                 00000002
+RA0                               00000000
+RA1                               00000001
+RA2                               00000002
+RA3                               00000003
+RA4                               00000004
+RA5                               00000005
+RB0                               00000000
+RB1                               00000001
+RB2                               00000002
+RB3                               00000003
+RB4                               00000004
+RB5                               00000005
+RB6                               00000006
+RB7                               00000007
+RBIE                              00000003
+RBIF                              00000000
+RC0                               00000000
+RC1                               00000001
+RC2                               00000002
+RC3                               00000003
+RC4                               00000004
+RC5                               00000005
+RC6                               00000006
+RC7                               00000007
+RC8_9                             00000006
+RC9                               00000006
+RCD8                              00000000
+RCEN                              00000003
+RCIE                              00000005
+RCIF                              00000005
+RCREG                             0000001A
+RCSTA                             00000018
+RD                                00000000
+RD0                               00000000
+RD1                               00000001
+RD2                               00000002
+RD3                               00000003
+RD4                               00000004
+RD5                               00000005
+RD6                               00000006
+RD7                               00000007
+RE0                               00000000
+RE1                               00000001
+RE2                               00000002
+READ_WRITE                        00000002
+RP0                               00000005
+MPASM  5.43                         FINAL.ASM   6-25-2013  8:46:47         PAGE 22
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+RP1                               00000006
+RSEN                              00000001
+RX9                               00000006
+RX9D                              00000000
+R_NOT_W                           00000002
+R_W                               00000002
+S                                 00000003
+SEN                               00000000
+SMP                               00000007
+SPBRG                             00000099
+SPEN                              00000007
+SREN                              00000005
+SSPADD                            00000093
+SSPBUF                            00000013
+SSPCON                            00000014
+SSPCON2                           00000091
+SSPEN                             00000005
+SSPIE                             00000003
+SSPIF                             00000003
+SSPM0                             00000000
+SSPM1                             00000001
+SSPM2                             00000002
+SSPM3                             00000003
+SSPOV                             00000006
+SSPSTAT                           00000094
+STATUS                            00000003
+SYNC                              00000004
+T0CS                              00000005
+T0IE                              00000005
+T0IF                              00000002
+T0SE                              00000004
+T1CKPS0                           00000004
+T1CKPS1                           00000005
+T1CON                             00000010
+T1INSYNC                          00000002
+T1OSCEN                           00000003
+T1SYNC                            00000002
+T2CKPS0                           00000000
+T2CKPS1                           00000001
+T2CON                             00000012
+TMR0                              00000001
+TMR0IE                            00000005
+TMR0IF                            00000002
+TMR1CS                            00000001
+TMR1H                             0000000F
+TMR1IE                            00000000
+TMR1IF                            00000000
+TMR1L                             0000000E
+TMR1ON                            00000000
+TMR2                              00000011
+TMR2IE                            00000001
+TMR2IF                            00000001
+TMR2ON                            00000002
+MPASM  5.43                         FINAL.ASM   6-25-2013  8:46:47         PAGE 23
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+TOUTPS0                           00000003
+TOUTPS1                           00000004
+TOUTPS2                           00000005
+TOUTPS3                           00000006
+TRISA                             00000085
+TRISA0                            00000000
+TRISA1                            00000001
+TRISA2                            00000002
+TRISA3                            00000003
+TRISA4                            00000004
+TRISA5                            00000005
+TRISB                             00000086
+TRISB0                            00000000
+TRISB1                            00000001
+TRISB2                            00000002
+TRISB3                            00000003
+TRISB4                            00000004
+TRISB5                            00000005
+TRISB6                            00000006
+TRISB7                            00000007
+TRISC                             00000087
+TRISC0                            00000000
+TRISC1                            00000001
+TRISC2                            00000002
+TRISC3                            00000003
+TRISC4                            00000004
+TRISC5                            00000005
+TRISC6                            00000006
+TRISC7                            00000007
+TRISD                             00000088
+TRISD0                            00000000
+TRISD1                            00000001
+TRISD2                            00000002
+TRISD3                            00000003
+TRISD4                            00000004
+TRISD5                            00000005
+TRISD6                            00000006
+TRISD7                            00000007
+TRISE                             00000089
+TRISE0                            00000000
+TRISE1                            00000001
+TRISE2                            00000002
+TRMT                              00000001
+TX8_9                             00000006
+TX9                               00000006
+TX9D                              00000000
+TXD8                              00000000
+TXEN                              00000005
+TXIE                              00000004
+TXIF                              00000004
+TXREG                             00000019
+TXSTA                             00000098
+TenK                              0000003F
+MPASM  5.43                         FINAL.ASM   6-25-2013  8:46:47         PAGE 24
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+Tens                              00000042
+Thou                              00000040
+UA                                00000001
+UDIV1608L                         00000000
+UMUL0808L                         00000000
+W                                 00000000
+WCOL                              00000007
+WR                                00000001
+WREN                              00000002
+WRERR                             00000003
+Z                                 00000002
+_BODEN_OFF                        00003FBF
+_BODEN_ON                         00003FFF
+_BOREN_OFF                        00003FBF
+_BOREN_ON                         00003FFF
+_CONFIG                           00002007
+_CPD_OFF                          00003FFF
+_CPD_ON                           00003EFF
+_CP_ALL                           00001FFF
+_CP_OFF                           00003FFF
+_CP_ON                            00001FFF
+_DEBUG_OFF                        00003FFF
+_DEBUG_ON                         000037FF
+_DEVID1                           00002006
+_FOSC_EXTRC                       00003FFF
+_FOSC_HS                          00003FFE
+_FOSC_LP                          00003FFC
+_FOSC_XT                          00003FFD
+_HS_OSC                           00003FFE
+_IDLOC0                           00002000
+_IDLOC1                           00002001
+_IDLOC2                           00002002
+_IDLOC3                           00002003
+_LP_OSC                           00003FFC
+_LVP_OFF                          00003F7F
+_LVP_ON                           00003FFF
+_PWRTE_OFF                        00003FFF
+_PWRTE_ON                         00003FF7
+_RC_OSC                           00003FFF
+_WDTE_OFF                         00003FFB
+_WDTE_ON                          00003FFF
+_WDT_OFF                          00003FFB
+_WDT_ON                           00003FFF
+_WRT_1FOURTH                      00003BFF
+_WRT_256                          00003DFF
+_WRT_HALF                         000039FF
+_WRT_OFF                          00003FFF
+_XT_OSC                           00003FFD
+__16F877A                         00000001
+_stan_t_026A                      0000026A
+_stan_t_0272                      00000272
+_stan_t_02FB                      000002FB
+_stan_t_0303                      00000303
+MPASM  5.43                         FINAL.ASM   6-25-2013  8:46:47         PAGE 25
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+_stan_t_031C                      0000031C
+_stan_t_0324                      00000324
+_stan_t_032D                      0000032D
+_stan_t_032F                      0000032F
+_stan_t_0339                      00000339
+_stan_t_033B                      0000033B
+_stan_t_033D                      0000033D
+adblanc                           00000021
+adrepetition                      00000022
+bin16_bcd                         0000035C
+bin_bcd                           0000033F
+blanc                             000000FF
+boucle_tmr1                       000001E7
+boucle_tmr11                      000001EC
+boucle_tmr2                       000001F2
+boucle_tmr22                      000001F7
+boucle_tmr3                       000001FD
+boucle_tmr33                      00000202
+boucle_tmr4                       00000208
+boucle_tmr44                      0000020D
+boucle_tmr5                       00000213
+boucle_tmr55                      00000218
+choix                             000001D7
+cmd_byte                          00000035
+coeff                             00000046
+d_write                           00000000
+debut                             000001C1
+delay_100ms                       00000326
+delay_1s                          00000331
+duree                             000000CD
+ghundreth                         00000344
+gtenth                            0000034B
+hours                             0000003C
+i_write                           00000000
+init                              0000038E
+interruption                      0000021D
+la                                000002DE
+menu                              000001CC
+minutes                           0000003B
+over                              00000352
+presentation                      00000278
+programme                         000001DD
+ptr_count                         00000031
+ptr_pos                           00000030
+repetition                        0000000F
+seconds                           0000003A
+selectRA4                         PORTA,4
+selectRB0                         PORTB,0
+signal                            PORTE,2
+stan_char_1                       000002E4
+stan_char_2                       00000305
+stan_next_char_1                  000002E9
+stan_next_char_2                  0000030A
+MPASM  5.43                         FINAL.ASM   6-25-2013  8:46:47         PAGE 26
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+stan_table                        00000100
+suite                             000001DA
+suite2                            000002E1
+temp_1                            00000032
+temp_2                            00000033
+temp_3                            00000034
+temp_wr                           00000000
+temperature                       00000036
+testflag                          0000021B
+
+Errors   :     0
+Warnings :     3 reported,     0 suppressed
+Messages :    14 reported,     0 suppressed
+
+

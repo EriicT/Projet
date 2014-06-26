@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=
+comment0.target=AleaCommand()
+comment1.params=
+comment1.target=java.lang.String\ getAleaString()
+comment2.params=pPlayer
+comment2.target=void\ execute(Model.Player)
+numComments=3

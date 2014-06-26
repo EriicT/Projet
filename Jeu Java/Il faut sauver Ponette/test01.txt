@@ -1,0 +1,19 @@
+﻿ 
+go right 
+go straight
+go straight 
+go straight
+back 
+back
+go left
+go up 
+back 
+back
+back 
+back
+go left
+go down
+go down
+go straight
+go up 
+

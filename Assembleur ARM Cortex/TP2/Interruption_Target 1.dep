@@ -1,0 +1,3 @@
+Dependencies for Project 'Interruption', Target 'Target 1': (DO NOT MODIFY !)
+F (.\Startup.s)(0x52728361)(--cpu Cortex-M3 --pd "__EVAL SETA 1" -g --apcs=interwork --pd "__MICROLIB SETA 1"-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary--list .\startup.lst --xref -o .\startup.o --depend .\startup.d)
+F (.\Interruption.asm)(0x52777CAF)(--cpu Cortex-M3 --pd "__EVAL SETA 1" -g --apcs=interwork --pd "__MICROLIB SETA 1"-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary--list .\interruption.lst --xref -o .\interruption.o --depend .\interruption.d)

@@ -1,0 +1,262 @@
+MPLINK 4.41, Linker
+Linker Map File - Created Tue Jun 25 10:06:07 2013
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                   .org_0       code   0x000000    program   0x000002
+                   .cinit    romdata   0x000001    program   0x000004
+                   stan_t       code   0x000100    program   0x00046c
+                    PROG1       code   0x000336    program   0x00026c
+                    PROG2       code   0x000800    program   0x00007c
+        .config_2007_ER.O       code   0x002007    program   0x000002
+               D_LCD_DATA      udata   0x000020       data   0x000004
+                variables      udata   0x000030       data   0x000014
+                 MATH_VAR      udata   0x000050       data   0x000009
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x000002      
+                            0x000100    0x00046b      
+                            0x000800    0x00083d      
+                            0x002007    0x002007      
+            942 out of 8454 program addresses used, program memory utilization is 11%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                 Delay1ms   0x00042c    program     static L:\Télèmetre ER continu\p16lcd.asm
+                Delay30ms   0x000433    program     static L:\Télèmetre ER continu\p16lcd.asm
+             DelayXCycles   0x000429    program     static L:\Télèmetre ER continu\p16lcd.asm
+                  Delay_1   0x00042f    program     static L:\Télèmetre ER continu\p16lcd.asm
+                    FinRd   0x000421    program     static L:\Télèmetre ER continu\p16lcd.asm
+                  LCDBusy   0x000422    program     extern L:\Télèmetre ER continu\p16lcd.asm
+                  LCDInit   0x000353    program     extern L:\Télèmetre ER continu\p16lcd.asm
+                LCDLine_1   0x000336    program     extern L:\Télèmetre ER continu\p16lcd.asm
+                LCDLine_2   0x00033c    program     extern L:\Télèmetre ER continu\p16lcd.asm
+                  LCDRead   0x0003e0    program     static L:\Télèmetre ER continu\p16lcd.asm
+                 LCDWrite   0x0003d7    program     extern L:\Télèmetre ER continu\p16lcd.asm
+           LCDWriteNibble   0x0003b3    program     static L:\Télèmetre ER continu\p16lcd.asm
+               LOOPU1608A   0x000818    program     static L:\Télèmetre ER continu\p16math.asm
+               LOOPU1608B   0x000826    program     static L:\Télèmetre ER continu\p16math.asm
+               LOOPUM0808   0x00080d    program     static L:\Télèmetre ER continu\p16math.asm
+              LOOPUM0808A   0x000804    program     static L:\Télèmetre ER continu\p16math.asm
+                LUM0808NA   0x000810    program     static L:\Télèmetre ER continu\p16math.asm
+               LUM0808NAP   0x00080b    program     static L:\Télèmetre ER continu\p16math.asm
+                      Lb1   0x000308    program     static L:\Télèmetre ER continu\ER.asm
+                      Lb2   0x00030c    program     static L:\Télèmetre ER continu\ER.asm
+                      Lb3   0x000310    program     static L:\Télèmetre ER continu\ER.asm
+                      Lb4   0x000314    program     static L:\Télèmetre ER continu\ER.asm
+                LongDelay   0x00045e    program     static L:\Télèmetre ER continu\p16lcd.asm
+            LongDelayLast   0x000468    program     static L:\Télèmetre ER continu\p16lcd.asm
+                UDIV1608L   0x000815    program     extern L:\Télèmetre ER continu\p16math.asm
+                UMUL0808L   0x000800    program     extern L:\Télèmetre ER continu\p16math.asm
+                   UOK68A   0x000820    program     static L:\Télèmetre ER continu\p16math.asm
+                   UOK68B   0x00083a    program     static L:\Télèmetre ER continu\p16math.asm
+              _PROG1_0015   0x00034b    program     static L:\Télèmetre ER continu\p16lcd.asm
+              _PROG1_0038   0x00036e    program     static L:\Télèmetre ER continu\p16lcd.asm
+              _PROG1_0043   0x000379    program     static L:\Télèmetre ER continu\p16lcd.asm
+             _stan_t_023A   0x00023a    program     static L:\Télèmetre ER continu\ER.asm
+             _stan_t_0242   0x000242    program     static L:\Télèmetre ER continu\ER.asm
+             _stan_t_0286   0x000286    program     static L:\Télèmetre ER continu\ER.asm
+             _stan_t_028E   0x00028e    program     static L:\Télèmetre ER continu\ER.asm
+             _stan_t_02A7   0x0002a7    program     static L:\Télèmetre ER continu\ER.asm
+             _stan_t_02AF   0x0002af    program     static L:\Télèmetre ER continu\ER.asm
+             _stan_t_02B8   0x0002b8    program     static L:\Télèmetre ER continu\ER.asm
+             _stan_t_02BA   0x0002ba    program     static L:\Télèmetre ER continu\ER.asm
+             _stan_t_02C4   0x0002c4    program     static L:\Télèmetre ER continu\ER.asm
+             _stan_t_02C6   0x0002c6    program     static L:\Télèmetre ER continu\ER.asm
+             _stan_t_02C8   0x0002c8    program     static L:\Télèmetre ER continu\ER.asm
+                bin16_bcd   0x0002e7    program     static L:\Télèmetre ER continu\ER.asm
+                  bin_bcd   0x0002ca    program     static L:\Télèmetre ER continu\ER.asm
+              boucle_tmr1   0x000196    program     static L:\Télèmetre ER continu\ER.asm
+             boucle_tmr11   0x00019b    program     static L:\Télèmetre ER continu\ER.asm
+              boucle_tmr2   0x0001a1    program     static L:\Télèmetre ER continu\ER.asm
+             boucle_tmr22   0x0001a6    program     static L:\Télèmetre ER continu\ER.asm
+              boucle_tmr3   0x0001ac    program     static L:\Télèmetre ER continu\ER.asm
+             boucle_tmr33   0x0001b1    program     static L:\Télèmetre ER continu\ER.asm
+              boucle_tmr4   0x0001b7    program     static L:\Télèmetre ER continu\ER.asm
+             boucle_tmr44   0x0001bc    program     static L:\Télèmetre ER continu\ER.asm
+              boucle_tmr5   0x0001c2    program     static L:\Télèmetre ER continu\ER.asm
+             boucle_tmr55   0x0001c7    program     static L:\Télèmetre ER continu\ER.asm
+              boucle_tmr6   0x0001cd    program     static L:\Télèmetre ER continu\ER.asm
+             boucle_tmr66   0x0001d2    program     static L:\Télèmetre ER continu\ER.asm
+              boucle_tmr7   0x0001d8    program     static L:\Télèmetre ER continu\ER.asm
+             boucle_tmr77   0x0001dd    program     static L:\Télèmetre ER continu\ER.asm
+              boucle_tmr8   0x0001e3    program     static L:\Télèmetre ER continu\ER.asm
+             boucle_tmr88   0x0001e8    program     static L:\Télèmetre ER continu\ER.asm
+                  d_write   0x000342    program     extern L:\Télèmetre ER continu\p16lcd.asm
+                    debut   0x000181    program     static L:\Télèmetre ER continu\ER.asm
+              delay_100ms   0x0002b1    program     static L:\Télèmetre ER continu\ER.asm
+                 delay_1s   0x0002bc    program     static L:\Télèmetre ER continu\ER.asm
+                ghundreth   0x0002cf    program     static L:\Télèmetre ER continu\ER.asm
+                   gtenth   0x0002d6    program     static L:\Télèmetre ER continu\ER.asm
+                  i_write   0x00034f    program     extern L:\Télèmetre ER continu\p16lcd.asm
+                     init   0x000319    program     static L:\Télèmetre ER continu\ER.asm
+             interruption   0x0001ed    program     static L:\Télèmetre ER continu\ER.asm
+                     over   0x0002dd    program     static L:\Télèmetre ER continu\ER.asm
+             presentation   0x000249    program     static L:\Télèmetre ER continu\ER.asm
+                programme   0x00018c    program     static L:\Télèmetre ER continu\ER.asm
+              stan_char_1   0x00026f    program     static L:\Télèmetre ER continu\ER.asm
+              stan_char_2   0x000290    program     static L:\Télèmetre ER continu\ER.asm
+         stan_next_char_1   0x000274    program     static L:\Télèmetre ER continu\ER.asm
+         stan_next_char_2   0x000295    program     static L:\Télèmetre ER continu\ER.asm
+               stan_table   0x000100    program     static L:\Télèmetre ER continu\ER.asm
+                 testflag   0x0001eb    program     static L:\Télèmetre ER continu\ER.asm
+                   AARGB0   0x000050       data     extern L:\Télèmetre ER continu\p16math.asm
+                   AARGB1   0x000051       data     extern L:\Télèmetre ER continu\p16math.asm
+                   AARGB5   0x000052       data     static L:\Télèmetre ER continu\p16math.asm
+                   BARGB0   0x000053       data     extern L:\Télèmetre ER continu\p16math.asm
+                   BARGB1   0x000054       data     static L:\Télèmetre ER continu\p16math.asm
+                  COUNTER   0x000020       data     static L:\Télèmetre ER continu\p16lcd.asm
+                     Hund   0x000041       data     static L:\Télèmetre ER continu\ER.asm
+                LOOPCOUNT   0x000058       data     static L:\Télèmetre ER continu\p16math.asm
+                      LSD   0x000037       data     static L:\Télèmetre ER continu\ER.asm
+                      MSD   0x000039       data     static L:\Télèmetre ER continu\ER.asm
+                      MsD   0x000038       data     static L:\Télèmetre ER continu\ER.asm
+                     NumH   0x00003d       data     static L:\Télèmetre ER continu\ER.asm
+                     NumL   0x00003e       data     static L:\Télèmetre ER continu\ER.asm
+                     Ones   0x000043       data     static L:\Télèmetre ER continu\ER.asm
+                    REMB0   0x000055       data     static L:\Télèmetre ER continu\p16math.asm
+                    REMB1   0x000056       data     static L:\Télèmetre ER continu\p16math.asm
+                     TEMP   0x000057       data     static L:\Télèmetre ER continu\p16math.asm
+                     TenK   0x00003f       data     static L:\Télèmetre ER continu\ER.asm
+                     Tens   0x000042       data     static L:\Télèmetre ER continu\ER.asm
+                     Thou   0x000040       data     static L:\Télèmetre ER continu\ER.asm
+                 cmd_byte   0x000035       data     static L:\Télèmetre ER continu\ER.asm
+                    delay   0x000021       data     static L:\Télèmetre ER continu\p16lcd.asm
+                    hours   0x00003c       data     static L:\Télèmetre ER continu\ER.asm
+                  minutes   0x00003b       data     static L:\Télèmetre ER continu\ER.asm
+                ptr_count   0x000031       data     static L:\Télèmetre ER continu\ER.asm
+                  ptr_pos   0x000030       data     static L:\Télèmetre ER continu\ER.asm
+                  seconds   0x00003a       data     static L:\Télèmetre ER continu\ER.asm
+                   temp_1   0x000032       data     static L:\Télèmetre ER continu\ER.asm
+                   temp_2   0x000033       data     static L:\Télèmetre ER continu\ER.asm
+                   temp_3   0x000034       data     static L:\Télèmetre ER continu\ER.asm
+                  temp_rd   0x000023       data     static L:\Télèmetre ER continu\p16lcd.asm
+                  temp_wr   0x000022       data     extern L:\Télèmetre ER continu\p16lcd.asm
+              temperature   0x000036       data     static L:\Télèmetre ER continu\ER.asm
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+               stan_table   0x000100    program     static L:\Télèmetre ER continu\ER.asm
+                    debut   0x000181    program     static L:\Télèmetre ER continu\ER.asm
+                programme   0x00018c    program     static L:\Télèmetre ER continu\ER.asm
+              boucle_tmr1   0x000196    program     static L:\Télèmetre ER continu\ER.asm
+             boucle_tmr11   0x00019b    program     static L:\Télèmetre ER continu\ER.asm
+              boucle_tmr2   0x0001a1    program     static L:\Télèmetre ER continu\ER.asm
+             boucle_tmr22   0x0001a6    program     static L:\Télèmetre ER continu\ER.asm
+              boucle_tmr3   0x0001ac    program     static L:\Télèmetre ER continu\ER.asm
+             boucle_tmr33   0x0001b1    program     static L:\Télèmetre ER continu\ER.asm
+              boucle_tmr4   0x0001b7    program     static L:\Télèmetre ER continu\ER.asm
+             boucle_tmr44   0x0001bc    program     static L:\Télèmetre ER continu\ER.asm
+              boucle_tmr5   0x0001c2    program     static L:\Télèmetre ER continu\ER.asm
+             boucle_tmr55   0x0001c7    program     static L:\Télèmetre ER continu\ER.asm
+              boucle_tmr6   0x0001cd    program     static L:\Télèmetre ER continu\ER.asm
+             boucle_tmr66   0x0001d2    program     static L:\Télèmetre ER continu\ER.asm
+              boucle_tmr7   0x0001d8    program     static L:\Télèmetre ER continu\ER.asm
+             boucle_tmr77   0x0001dd    program     static L:\Télèmetre ER continu\ER.asm
+              boucle_tmr8   0x0001e3    program     static L:\Télèmetre ER continu\ER.asm
+             boucle_tmr88   0x0001e8    program     static L:\Télèmetre ER continu\ER.asm
+                 testflag   0x0001eb    program     static L:\Télèmetre ER continu\ER.asm
+             interruption   0x0001ed    program     static L:\Télèmetre ER continu\ER.asm
+             _stan_t_023A   0x00023a    program     static L:\Télèmetre ER continu\ER.asm
+             _stan_t_0242   0x000242    program     static L:\Télèmetre ER continu\ER.asm
+             presentation   0x000249    program     static L:\Télèmetre ER continu\ER.asm
+              stan_char_1   0x00026f    program     static L:\Télèmetre ER continu\ER.asm
+         stan_next_char_1   0x000274    program     static L:\Télèmetre ER continu\ER.asm
+             _stan_t_0286   0x000286    program     static L:\Télèmetre ER continu\ER.asm
+             _stan_t_028E   0x00028e    program     static L:\Télèmetre ER continu\ER.asm
+              stan_char_2   0x000290    program     static L:\Télèmetre ER continu\ER.asm
+         stan_next_char_2   0x000295    program     static L:\Télèmetre ER continu\ER.asm
+             _stan_t_02A7   0x0002a7    program     static L:\Télèmetre ER continu\ER.asm
+             _stan_t_02AF   0x0002af    program     static L:\Télèmetre ER continu\ER.asm
+              delay_100ms   0x0002b1    program     static L:\Télèmetre ER continu\ER.asm
+             _stan_t_02B8   0x0002b8    program     static L:\Télèmetre ER continu\ER.asm
+             _stan_t_02BA   0x0002ba    program     static L:\Télèmetre ER continu\ER.asm
+                 delay_1s   0x0002bc    program     static L:\Télèmetre ER continu\ER.asm
+             _stan_t_02C4   0x0002c4    program     static L:\Télèmetre ER continu\ER.asm
+             _stan_t_02C6   0x0002c6    program     static L:\Télèmetre ER continu\ER.asm
+             _stan_t_02C8   0x0002c8    program     static L:\Télèmetre ER continu\ER.asm
+                  bin_bcd   0x0002ca    program     static L:\Télèmetre ER continu\ER.asm
+                ghundreth   0x0002cf    program     static L:\Télèmetre ER continu\ER.asm
+                   gtenth   0x0002d6    program     static L:\Télèmetre ER continu\ER.asm
+                     over   0x0002dd    program     static L:\Télèmetre ER continu\ER.asm
+                bin16_bcd   0x0002e7    program     static L:\Télèmetre ER continu\ER.asm
+                      Lb1   0x000308    program     static L:\Télèmetre ER continu\ER.asm
+                      Lb2   0x00030c    program     static L:\Télèmetre ER continu\ER.asm
+                      Lb3   0x000310    program     static L:\Télèmetre ER continu\ER.asm
+                      Lb4   0x000314    program     static L:\Télèmetre ER continu\ER.asm
+                     init   0x000319    program     static L:\Télèmetre ER continu\ER.asm
+                LCDLine_1   0x000336    program     extern L:\Télèmetre ER continu\p16lcd.asm
+                LCDLine_2   0x00033c    program     extern L:\Télèmetre ER continu\p16lcd.asm
+                  d_write   0x000342    program     extern L:\Télèmetre ER continu\p16lcd.asm
+              _PROG1_0015   0x00034b    program     static L:\Télèmetre ER continu\p16lcd.asm
+                  i_write   0x00034f    program     extern L:\Télèmetre ER continu\p16lcd.asm
+                  LCDInit   0x000353    program     extern L:\Télèmetre ER continu\p16lcd.asm
+              _PROG1_0038   0x00036e    program     static L:\Télèmetre ER continu\p16lcd.asm
+              _PROG1_0043   0x000379    program     static L:\Télèmetre ER continu\p16lcd.asm
+           LCDWriteNibble   0x0003b3    program     static L:\Télèmetre ER continu\p16lcd.asm
+                 LCDWrite   0x0003d7    program     extern L:\Télèmetre ER continu\p16lcd.asm
+                  LCDRead   0x0003e0    program     static L:\Télèmetre ER continu\p16lcd.asm
+                    FinRd   0x000421    program     static L:\Télèmetre ER continu\p16lcd.asm
+                  LCDBusy   0x000422    program     extern L:\Télèmetre ER continu\p16lcd.asm
+             DelayXCycles   0x000429    program     static L:\Télèmetre ER continu\p16lcd.asm
+                 Delay1ms   0x00042c    program     static L:\Télèmetre ER continu\p16lcd.asm
+                  Delay_1   0x00042f    program     static L:\Télèmetre ER continu\p16lcd.asm
+                Delay30ms   0x000433    program     static L:\Télèmetre ER continu\p16lcd.asm
+                LongDelay   0x00045e    program     static L:\Télèmetre ER continu\p16lcd.asm
+            LongDelayLast   0x000468    program     static L:\Télèmetre ER continu\p16lcd.asm
+                UMUL0808L   0x000800    program     extern L:\Télèmetre ER continu\p16math.asm
+              LOOPUM0808A   0x000804    program     static L:\Télèmetre ER continu\p16math.asm
+               LUM0808NAP   0x00080b    program     static L:\Télèmetre ER continu\p16math.asm
+               LOOPUM0808   0x00080d    program     static L:\Télèmetre ER continu\p16math.asm
+                LUM0808NA   0x000810    program     static L:\Télèmetre ER continu\p16math.asm
+                UDIV1608L   0x000815    program     extern L:\Télèmetre ER continu\p16math.asm
+               LOOPU1608A   0x000818    program     static L:\Télèmetre ER continu\p16math.asm
+                   UOK68A   0x000820    program     static L:\Télèmetre ER continu\p16math.asm
+               LOOPU1608B   0x000826    program     static L:\Télèmetre ER continu\p16math.asm
+                   UOK68B   0x00083a    program     static L:\Télèmetre ER continu\p16math.asm
+                  COUNTER   0x000020       data     static L:\Télèmetre ER continu\p16lcd.asm
+                    delay   0x000021       data     static L:\Télèmetre ER continu\p16lcd.asm
+                  temp_wr   0x000022       data     extern L:\Télèmetre ER continu\p16lcd.asm
+                  temp_rd   0x000023       data     static L:\Télèmetre ER continu\p16lcd.asm
+                  ptr_pos   0x000030       data     static L:\Télèmetre ER continu\ER.asm
+                ptr_count   0x000031       data     static L:\Télèmetre ER continu\ER.asm
+                   temp_1   0x000032       data     static L:\Télèmetre ER continu\ER.asm
+                   temp_2   0x000033       data     static L:\Télèmetre ER continu\ER.asm
+                   temp_3   0x000034       data     static L:\Télèmetre ER continu\ER.asm
+                 cmd_byte   0x000035       data     static L:\Télèmetre ER continu\ER.asm
+              temperature   0x000036       data     static L:\Télèmetre ER continu\ER.asm
+                      LSD   0x000037       data     static L:\Télèmetre ER continu\ER.asm
+                      MsD   0x000038       data     static L:\Télèmetre ER continu\ER.asm
+                      MSD   0x000039       data     static L:\Télèmetre ER continu\ER.asm
+                  seconds   0x00003a       data     static L:\Télèmetre ER continu\ER.asm
+                  minutes   0x00003b       data     static L:\Télèmetre ER continu\ER.asm
+                    hours   0x00003c       data     static L:\Télèmetre ER continu\ER.asm
+                     NumH   0x00003d       data     static L:\Télèmetre ER continu\ER.asm
+                     NumL   0x00003e       data     static L:\Télèmetre ER continu\ER.asm
+                     TenK   0x00003f       data     static L:\Télèmetre ER continu\ER.asm
+                     Thou   0x000040       data     static L:\Télèmetre ER continu\ER.asm
+                     Hund   0x000041       data     static L:\Télèmetre ER continu\ER.asm
+                     Tens   0x000042       data     static L:\Télèmetre ER continu\ER.asm
+                     Ones   0x000043       data     static L:\Télèmetre ER continu\ER.asm
+                   AARGB0   0x000050       data     extern L:\Télèmetre ER continu\p16math.asm
+                   AARGB1   0x000051       data     extern L:\Télèmetre ER continu\p16math.asm
+                   AARGB5   0x000052       data     static L:\Télèmetre ER continu\p16math.asm
+                   BARGB0   0x000053       data     extern L:\Télèmetre ER continu\p16math.asm
+                   BARGB1   0x000054       data     static L:\Télèmetre ER continu\p16math.asm
+                    REMB0   0x000055       data     static L:\Télèmetre ER continu\p16math.asm
+                    REMB1   0x000056       data     static L:\Télèmetre ER continu\p16math.asm
+                     TEMP   0x000057       data     static L:\Télèmetre ER continu\p16math.asm
+                LOOPCOUNT   0x000058       data     static L:\Télèmetre ER continu\p16math.asm
+
+

@@ -1,0 +1,188 @@
+
+header 
+{ display : block;
+  background-image :url("img/black.jpg");
+  width : 1064px; 
+  height: 150px;
+  padding: 20px 0px 20px 0px;
+  font-family : "lucida sans";
+  text-align : center ; 
+  color :White;
+  border-radius: 3px;
+  margin:auto;
+}
+
+
+
+body
+{ width : 100%;
+  text-align: center;}
+
+article
+{ margin : auto;
+ background-image :url("img/body.jpg");
+ font-family : "lucida sans";
+ padding : 5px 100px 20px 50px;
+ text-align : left ;
+ font-size: 1em;
+ width : 914px;
+ min-height: 600px;
+ border-radius: 5px;
+
+}
+footer 
+{   background-image :url("img/black.jpg");
+  text-align: center;
+  display : block;
+  width : 1064px; 
+  font-family : "lucida sans";
+  padding-top : 10px;
+  vertical-align: top;
+  border-radius: 3px;
+  margin:auto;
+}
+
+
+
+
+ header a:hover 
+{ color :Red;}
+
+ .lien : hover
+ {
+   color : red;
+ }
+
+
+.stitres
+{ font-size : 1.0em; }
+.titres
+{  font-size : 1.2em;}
+  
+.gra 
+{ font-weight : bold ;
+  text-decoration : none;
+}
+.ita
+{ font-style : italic;
+}
+
+header h1
+{
+font-family : "lucida sans";
+}
+
+
+header li
+{ 
+display : inline-block;
+padding-right: 20px;
+}
+
+header a
+{
+    font-size: 1.1em;
+    color: White;
+    padding-bottom: 2.5px;
+    text-decoration: none;
+    border: 1px none;
+
+}
+
+
+section 
+{display : inline-block;
+}
+
+
+ .stitres
+{ font-weight: bold;}
+
+.projet
+{ font-size: 1.1em;
+  color: rgb(22,25,59);
+   font-weight: bold;
+}
+
+.formation
+{color : rgb(67,171,31);}
+
+.exp
+{ color :rgb(78,122,199);}
+
+.competence
+{color: rgb(155,2,2);}
+
+.cat
+{ font-size: 1.2em;
+  color: rgb(155,2,2);
+ }
+
+.type 
+{font-size: 1.2em;
+  color: rgb(60,35,9);}
+
+.vie 
+{color : rgb(60,35,9);
+}
+
+div
+{ display : inline-block;
+vertical-align: top;} 
+
+
+article h1
+{ font-size: 1.5em;
+text-align : center;}
+
+article h3
+{text-align: center;
+font-size: 2em;}
+
+article h4
+{text-align: center;
+font-size: 1.5em;
+font-style: italic;}
+
+article h5
+{text-align: left;
+ font-size: 1.5em;}
+
+article h6
+{ text-align: left;
+  font-size: 1.1em;
+  }
+
+article ol
+{ list-style-type: none;}
+
+footer h4
+{display: block;
+ margin : auto;
+ width : 40%;
+ font-size : 1em;
+ padding : 10px 0px 10px 0px;
+ text-align : left;
+ color : White;
+ }
+
+footer a 
+{ color : White;
+  text-decoration:  none;
+  }
+
+footer ul 
+{display: block;
+  margin : auto;
+ list-style-type: none;
+ width : 100%;
+ height : 150px;
+ font-size : 1em;
+ text-align : left;
+ color : White;
+ }
+
+
+
+
+

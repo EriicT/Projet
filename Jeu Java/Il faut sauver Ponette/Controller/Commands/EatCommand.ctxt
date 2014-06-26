@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=
+comment0.target=EatCommand()
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ EatCommand\r\n
+comment1.params=pPlayer
+comment1.target=void\ execute(Model.Player)
+comment1.text=\r\n\ \ Command\ Eat\ \:\ Eat\ something\r\n
+numComments=2

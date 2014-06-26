@@ -1,0 +1,153 @@
+<HTML>
+<BODY BGCOLOR="white">
+<PRE>
+<FONT color="green">001</FONT>    import java.util.Iterator;<a name="line.1"></a>
+<FONT color="green">002</FONT>    import java.util.HashMap;<a name="line.2"></a>
+<FONT color="green">003</FONT>    import java.util.Set;<a name="line.3"></a>
+<FONT color="green">004</FONT>    /**<a name="line.4"></a>
+<FONT color="green">005</FONT>     * This class is part of the "World of Zuul" application. <a name="line.5"></a>
+<FONT color="green">006</FONT>     * "World of Zuul" is a very simple, text based adventure game.  <a name="line.6"></a>
+<FONT color="green">007</FONT>     * <a name="line.7"></a>
+<FONT color="green">008</FONT>     * This class holds an enumeration of all command words known to the game.<a name="line.8"></a>
+<FONT color="green">009</FONT>     * It is used to recognise commands as they are typed in.<a name="line.9"></a>
+<FONT color="green">010</FONT>     *<a name="line.10"></a>
+<FONT color="green">011</FONT>     * @author  Michael Kolling and David J. Barnes<a name="line.11"></a>
+<FONT color="green">012</FONT>     * @version 2006.03.30<a name="line.12"></a>
+<FONT color="green">013</FONT>     */<a name="line.13"></a>
+<FONT color="green">014</FONT>    <a name="line.14"></a>
+<FONT color="green">015</FONT>    public class CommandWords<a name="line.15"></a>
+<FONT color="green">016</FONT>    {<a name="line.16"></a>
+<FONT color="green">017</FONT>          <a name="line.17"></a>
+<FONT color="green">018</FONT>        private HashMap&lt;String, Command&gt; validCommands;<a name="line.18"></a>
+<FONT color="green">019</FONT>    <a name="line.19"></a>
+<FONT color="green">020</FONT>        /**<a name="line.20"></a>
+<FONT color="green">021</FONT>         * Constructor - initialise the command words.<a name="line.21"></a>
+<FONT color="green">022</FONT>         */<a name="line.22"></a>
+<FONT color="green">023</FONT>        public CommandWords()<a name="line.23"></a>
+<FONT color="green">024</FONT>        {<a name="line.24"></a>
+<FONT color="green">025</FONT>           validCommands = new HashMap&lt;String, Command&gt;();<a name="line.25"></a>
+<FONT color="green">026</FONT>            validCommands.put("help", new HelpCommand());<a name="line.26"></a>
+<FONT color="green">027</FONT>            validCommands.put("go", new GoCommand());<a name="line.27"></a>
+<FONT color="green">028</FONT>            validCommands.put("look", new LookCommand());<a name="line.28"></a>
+<FONT color="green">029</FONT>            validCommands.put("eat", new EatCommand());<a name="line.29"></a>
+<FONT color="green">030</FONT>            validCommands.put("back", new BackCommand());<a name="line.30"></a>
+<FONT color="green">031</FONT>            validCommands.put("take", new TakeCommand());<a name="line.31"></a>
+<FONT color="green">032</FONT>            validCommands.put("drop", new DropCommand());<a name="line.32"></a>
+<FONT color="green">033</FONT>            validCommands.put("quit", new QuitCommand());<a name="line.33"></a>
+<FONT color="green">034</FONT>            validCommands.put("test", new TestCommand());<a name="line.34"></a>
+<FONT color="green">035</FONT>            validCommands.put("items", new ItemsCommand());<a name="line.35"></a>
+<FONT color="green">036</FONT>            validCommands.put("use", new UseCommand());<a name="line.36"></a>
+<FONT color="green">037</FONT>            validCommands.put("examine", new ExamineCommand());<a name="line.37"></a>
+<FONT color="green">038</FONT>            validCommands.put("alea",new AleaCommand()) ;<a name="line.38"></a>
+<FONT color="green">039</FONT>            <a name="line.39"></a>
+<FONT color="green">040</FONT>            <a name="line.40"></a>
+<FONT color="green">041</FONT>        }<a name="line.41"></a>
+<FONT color="green">042</FONT>        <a name="line.42"></a>
+<FONT color="green">043</FONT>        <a name="line.43"></a>
+<FONT color="green">044</FONT>        public Command getCommandWord(String commandWord)<a name="line.44"></a>
+<FONT color="green">045</FONT>        {<a name="line.45"></a>
+<FONT color="green">046</FONT>            return (Command)validCommands.get(commandWord);<a name="line.46"></a>
+<FONT color="green">047</FONT>         <a name="line.47"></a>
+<FONT color="green">048</FONT>        }<a name="line.48"></a>
+<FONT color="green">049</FONT>        <a name="line.49"></a>
+<FONT color="green">050</FONT>        /**<a name="line.50"></a>
+<FONT color="green">051</FONT>         * Check whether a given String is a valid command word. <a name="line.51"></a>
+<FONT color="green">052</FONT>         * @return true if a given string is a valid command,<a name="line.52"></a>
+<FONT color="green">053</FONT>         * false if it isn't.<a name="line.53"></a>
+<FONT color="green">054</FONT>         */<a name="line.54"></a>
+<FONT color="green">055</FONT>        public boolean isCommand(String aString)<a name="line.55"></a>
+<FONT color="green">056</FONT>        {<a name="line.56"></a>
+<FONT color="green">057</FONT>            return validCommands.containsKey(aString);<a name="line.57"></a>
+<FONT color="green">058</FONT>        }<a name="line.58"></a>
+<FONT color="green">059</FONT>        <a name="line.59"></a>
+<FONT color="green">060</FONT>       <a name="line.60"></a>
+<FONT color="green">061</FONT>        <a name="line.61"></a>
+<FONT color="green">062</FONT>           /*<a name="line.62"></a>
+<FONT color="green">063</FONT>         * returns a String of all valid commands.<a name="line.63"></a>
+<FONT color="green">064</FONT>         <a name="line.64"></a>
+<FONT color="green">065</FONT>        public String getCommandList() <a name="line.65"></a>
+<FONT color="green">066</FONT>        {<a name="line.66"></a>
+<FONT color="green">067</FONT>            StringBuilder validCommands = new StringBuilder();<a name="line.67"></a>
+<FONT color="green">068</FONT>            for(String command : validCommands.keySet()) {<a name="line.68"></a>
+<FONT color="green">069</FONT>               validCommands.append( command + "  //  " );<a name="line.69"></a>
+<FONT color="green">070</FONT>            }<a name="line.70"></a>
+<FONT color="green">071</FONT>            return "You can " + validCommands.toString();<a name="line.71"></a>
+<FONT color="green">072</FONT>        }<a name="line.72"></a>
+<FONT color="green">073</FONT>        */<a name="line.73"></a>
+<FONT color="green">074</FONT>       <a name="line.74"></a>
+<FONT color="green">075</FONT>       public String showAll() <a name="line.75"></a>
+<FONT color="green">076</FONT>        { <a name="line.76"></a>
+<FONT color="green">077</FONT>             StringBuilder aCommandStringBuilder = new StringBuilder();<a name="line.77"></a>
+<FONT color="green">078</FONT>                               Set&lt;String&gt; keys =validCommands.keySet();<a name="line.78"></a>
+<FONT color="green">079</FONT>                      for (String validCommand : keys)<a name="line.79"></a>
+<FONT color="green">080</FONT>                            aCommandStringBuilder.append( validCommand +"  //  ");<a name="line.80"></a>
+<FONT color="green">081</FONT>                          <a name="line.81"></a>
+<FONT color="green">082</FONT>                  <a name="line.82"></a>
+<FONT color="green">083</FONT>                  return aCommandStringBuilder.toString();<a name="line.83"></a>
+<FONT color="green">084</FONT>            <a name="line.84"></a>
+<FONT color="green">085</FONT>        }<a name="line.85"></a>
+<FONT color="green">086</FONT>    <a name="line.86"></a>
+<FONT color="green">087</FONT>    }<a name="line.87"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE>
+</BODY>
+</HTML>

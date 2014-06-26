@@ -1,0 +1,616 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             MULTex, CODE, READONLY
+    2 00000000         
+    3 00000000         
+    4 00000000 400FE108 
+                       RCGC2   EQU              0x400FE000+ 0x108
+    5 00000000 40006400 
+                       GPIODIRC
+                               EQU              0x40006000+ 0x400
+    6 00000000 40027400 
+                       GPIODIRH
+                               EQU              0x40027000+ 0x400
+    7 00000000 4002751C 
+                       GPIODENH
+                               EQU              0x40027000+ 0x51C
+    8 00000000 4000651C 
+                       GPIODENC
+                               EQU              0x40006000+ 0x51C
+    9 00000000 40027020 
+                       E       EQU              0x40027020
+   10 00000000 40027010 
+                       RW      EQU              0x40027010
+   11 00000000 40006040 
+                       RS      EQU              0x40006040
+   12 00000000 400273C0 
+                       DB4567  EQU              0x400273C0
+   13 00000000         
+   14 00000000                 ENTRY
+   15 00000000                 EXPORT           __main
+   16 00000000         __main
+   17 00000000         
+   18 00000000         ; activation de l'horloge sur les ports H ET C
+   19 00000000 488F            LDR              R0,=RCGC2
+   20 00000002 F04F 0184       LDR              R1,= 0x84
+   21 00000006 6001            STR              R1,[R0]     ; on met R1 à l'adr
+                                                            esse indiquée par R
+                                                            0      
+   22 00000008 BF00            NOP
+   23 0000000A BF00            NOP
+   24 0000000C BF00            NOP
+   25 0000000E         
+   26 0000000E         
+   27 0000000E         ;DIRECTION  PORT C
+   28 0000000E 488D            LDR              R0,=GPIODIRC ; R0 contient 0x40
+                                                            006000+ 0x400
+   29 00000010 6802            LDR              R2,[R0]     ; on charge 0x40006
+                                                            000+ 0x400 dans R2
+   30 00000012 F04F 0110       LDR              R1,=0x10    ; on charge 0x10 da
+                                                            ns R1
+   31 00000016 EA41 0102       ORR              R1,R2       ; mettre les bits à
+                                                             un qui n'y sont pa
+                                                            s sans toucher aux 
+                                                            autres
+   32 0000001A 6001            STR              R1,[R0]     ; on met R1 dans la
+                                                             case mémoire indiq
+                                                            uée par l'adresse R
+                                                            0
+   33 0000001C         
+   34 0000001C         ;DIRECTION  PORT H
+   35 0000001C 488A            LDR              R0,=GPIODIRH
+
+
+
+ARM Macro Assembler    Page 2 
+
+
+   36 0000001E 6802            LDR              R2,[R0]
+   37 00000020 F04F 01FC       LDR              R1,=0xFC
+   38 00000024 EA41 0102       ORR              R1,R2
+   39 00000028 6001            STR              R1,[R0]
+   40 0000002A         
+   41 0000002A         ; FONCTION NUMERIQUE PORT C
+   42 0000002A 4888            LDR              R0,=GPIODENC
+   43 0000002C 6802            LDR              R2,[R0]
+   44 0000002E F04F 0110       LDR              R1,=0x10
+   45 00000032 EA41 0102       ORR              R1,R2
+   46 00000036 6001            STR              R1,[R0]
+   47 00000038         
+   48 00000038         ; FONCTION NUMERIQUE PORT H
+   49 00000038 4885            LDR              R0,=GPIODENH
+   50 0000003A 6802            LDR              R2,[R0]
+   51 0000003C F04F 01FC       LDR              R1,=0xFC
+   52 00000040 EA41 0102       ORR              R1,R2
+   53 00000044 6001            STR              R1,[R0]
+   54 00000046         
+   55 00000046         ; AFFICHE un caractere
+   56 00000046         
+   57 00000046 F000 F887       BL               LCDINIT
+   58 0000004A         
+   59 0000004A F000 F8EC       BL               RS1
+   60 0000004E F04F 004A       MOV              R0,#'J'
+   61 00000052 F000 F8DA       BL               LCDWR8
+   62 00000056         
+   63 00000056 F640 216B       LDR              R1,= 0xA6B  ; 50ms
+   64 0000005A F000 F8DE       BL               Wait
+   65 0000005E         
+   66 0000005E F04F 0056       MOV              R0,#'V'
+   67 00000062 F000 F8D2       BL               LCDWR8
+   68 00000066         
+   69 00000066 F640 216B       LDR              R1,= 0xA6B  ; 50ms
+   70 0000006A F000 F8D6       BL               Wait
+   71 0000006E         
+   72 0000006E F04F 004F       MOV              R0,#'O'
+   73 00000072 F000 F8CA       BL               LCDWR8
+   74 00000076         
+   75 00000076 F640 216B       LDR              R1,= 0xA6B  ; 50ms
+   76 0000007A F000 F8CE       BL               Wait
+   77 0000007E         
+   78 0000007E F04F 0055       MOV              R0,#'U'
+   79 00000082 F000 F8C2       BL               LCDWR8
+   80 00000086         
+   81 00000086 F640 216B       LDR              R1,= 0xA6B  ; 50ms
+   82 0000008A F000 F8C6       BL               Wait
+   83 0000008E         
+   84 0000008E F04F 0053       MOV              R0,#'S'
+   85 00000092 F000 F8BA       BL               LCDWR8
+   86 00000096         
+   87 00000096 F640 216B       LDR              R1,= 0xA6B  ; 50ms
+   88 0000009A F000 F8BE       BL               Wait
+   89 0000009E         
+   90 0000009E F04F 0020       MOV              R0,#' '
+   91 000000A2 F000 F8B2       BL               LCDWR8
+   92 000000A6         
+   93 000000A6 F640 216B       LDR              R1,= 0xA6B  ; 50ms
+   94 000000AA F000 F8B6       BL               Wait
+
+
+
+ARM Macro Assembler    Page 3 
+
+
+   95 000000AE         
+   96 000000AE F04F 0041       MOV              R0,#'A'
+   97 000000B2 F000 F8AA       BL               LCDWR8
+   98 000000B6         
+   99 000000B6 F640 216B       LDR              R1,= 0xA6B  ; 50ms
+  100 000000BA F000 F8AE       BL               Wait
+  101 000000BE         
+  102 000000BE F04F 0049       MOV              R0,#'I'
+  103 000000C2 F000 F8A2       BL               LCDWR8
+  104 000000C6         
+  105 000000C6 F640 216B       LDR              R1,= 0xA6B  ; 50ms
+  106 000000CA F000 F8A6       BL               Wait
+  107 000000CE         
+  108 000000CE F04F 004D       MOV              R0,#'M'
+  109 000000D2 F000 F89A       BL               LCDWR8
+  110 000000D6         
+  111 000000D6 F640 216B       LDR              R1,= 0xA6B  ; 50ms
+  112 000000DA F000 F89E       BL               Wait
+  113 000000DE         
+  114 000000DE F04F 0045       MOV              R0,#'E'
+  115 000000E2 F000 F892       BL               LCDWR8
+  116 000000E6         
+  117 000000E6         
+  118 000000E6 F640 216B       LDR              R1,= 0xA6B  ; 50ms
+  119 000000EA F000 F896       BL               Wait
+  120 000000EE         
+  121 000000EE F04F 0020       MOV              R0,#' '
+  122 000000F2 F000 F88A       BL               LCDWR8
+  123 000000F6         
+  124 000000F6         
+  125 000000F6 F640 216B       LDR              R1,= 0xA6B  ; 50ms
+  126 000000FA F000 F88E       BL               Wait
+  127 000000FE         
+  128 000000FE F04F 0050       MOV              R0,#'P'
+  129 00000102 F000 F882       BL               LCDWR8
+  130 00000106         
+  131 00000106         
+  132 00000106 F640 216B       LDR              R1,= 0xA6B  ; 50ms
+  133 0000010A F000 F886       BL               Wait
+  134 0000010E         
+  135 0000010E F04F 0041       MOV              R0,#'A'
+  136 00000112 F000 F87A       BL               LCDWR8
+  137 00000116         
+  138 00000116         
+  139 00000116 F640 216B       LDR              R1,= 0xA6B  ; 50ms
+  140 0000011A F000 F87E       BL               Wait
+  141 0000011E         
+  142 0000011E F04F 0053       MOV              R0,#'S'
+  143 00000122 F000 F872       BL               LCDWR8
+  144 00000126         
+  145 00000126         
+  146 00000126 F640 216B       LDR              R1,= 0xA6B  ; 50ms
+  147 0000012A F000 F876       BL               Wait
+  148 0000012E         
+  149 0000012E F04F 0020       MOV              R0,#' '
+  150 00000132 F000 F86A       BL               LCDWR8
+  151 00000136         
+  152 00000136         
+  153 00000136 F640 216B       LDR              R1,= 0xA6B  ; 50ms
+
+
+
+ARM Macro Assembler    Page 4 
+
+
+  154 0000013A F000 F86E       BL               Wait
+  155 0000013E         
+  156 0000013E F04F 0021       MOV              R0,#'!'
+  157 00000142 F000 F862       BL               LCDWR8
+  158 00000146         
+  159 00000146         
+  160 00000146 F640 216B       LDR              R1,= 0xA6B  ; 50ms
+  161 0000014A F000 F866       BL               Wait
+  162 0000014E         
+  163 0000014E F04F 0020       MOV              R0,#' '
+  164 00000152 F000 F85A       BL               LCDWR8
+  165 00000156         
+  166 00000156         
+  167 00000156 E7FE    boucle  B                boucle
+  168 00000158         
+  169 00000158         
+  170 00000158         
+  171 00000158         
+  172 00000158         
+  173 00000158         
+  174 00000158         
+  175 00000158         ; FONCTION LCDINIT 
+  176 00000158         
+  177 00000158 B500    LCDINIT PUSH{LR}
+  178 0000015A 493E            LDR              R1,= 0x516155 ; 1 s 
+  179 0000015C F000 F85D       BL               Wait
+  180 00000160         
+  181 00000160 F000 F867       BL               RS0
+  182 00000164 F04F 0030       LDR              R0,=0x30
+  183 00000168 F000 F833       BL               LCDWR4
+  184 0000016C         
+  185 0000016C F646 012B       LDR              R1,=0x682B  ; 5 ms
+  186 00000170 F000 F853       BL               Wait
+  187 00000174         
+  188 00000174 F04F 0030       LDR              R0,=0x30
+  189 00000178 F000 F82B       BL               LCDWR4
+  190 0000017C         
+  191 0000017C F04F 0135       LDR              R1,=0x35    ; 100 us
+  192 00000180 F000 F84B       BL               Wait
+  193 00000184         
+  194 00000184 F04F 0030       LDR              R0,=0x30
+  195 00000188 F000 F823       BL               LCDWR4
+  196 0000018C         
+  197 0000018C F04F 0135       LDR              R1,=0x35    ; 100 us
+  198 00000190 F000 F843       BL               Wait
+  199 00000194         
+  200 00000194 F04F 0020       LDR              R0,=0x20    ;
+  201 00000198 F000 F81B       BL               LCDWR4
+  202 0000019C         
+  203 0000019C F04F 0135       LDR              R1,=0x35    ; 100us
+  204 000001A0 F000 F83B       BL               Wait
+  205 000001A4         
+  206 000001A4 F04F 0028       LDR              R0,=0x28
+  207 000001A8 F000 F82F       BL               LCDWR8
+  208 000001AC         
+  209 000001AC 492A            LDR              R1,=0x2D92B ;38 ms
+  210 000001AE F000 F834       BL               Wait
+  211 000001B2         
+  212 000001B2 F04F 000F       LDR              R0,=0x0F
+
+
+
+ARM Macro Assembler    Page 5 
+
+
+  213 000001B6 F000 F828       BL               LCDWR8
+  214 000001BA         
+  215 000001BA 4927            LDR              R1,=0x2D92B ;38 ms
+  216 000001BC F000 F82D       BL               Wait
+  217 000001C0         
+  218 000001C0 F04F 0001       LDR              R0,=0x01
+  219 000001C4 F000 F821       BL               LCDWR8
+  220 000001C8         
+  221 000001C8 F642 11AB       LDR              R1,=0x29AB  ; 2ms
+  222 000001CC F000 F825       BL               Wait
+  223 000001D0         
+  224 000001D0 BD00            POP              {PC}
+  225 000001D2         
+  226 000001D2         ;FONCTION LCDWR4
+  227 000001D2 B500    LCDWR4  PUSH{LR}
+  228 000001D4         boucle1
+  229 000001D4 F04F 00F0       MOV              R0,#0xF0
+  230 000001D8         ;on arrive ici avec R0 qui contient les  4bits de poids 
+                       fort a afficher
+  231 000001D8 4A20            LDR              R2,=RW      ; RW a 0
+  232 000001DA F04F 0100       LDR              R1,= 0x0
+  233 000001DE 6011            STR              R1,[R2]
+  234 000001E0         
+  235 000001E0 BF00            NOP
+  236 000001E2 4A1F            LDR              R2,= DB4567 ; VALEUR DES BITS d
+                                                            e R0
+  237 000001E4 6010            STR              R0,[R2]
+  238 000001E6         
+  239 000001E6 4A1F            LDR              R2,= E      ; Remise a 1 de E
+  240 000001E8 F04F 0101       LDR              R1,= 0x1
+  241 000001EC 6011            STR              R1,[R2]
+  242 000001EE         
+  243 000001EE F04F 0103       LDR              R1,= 3      ;R1 contient la dur
+                                                            ée
+  244 000001F2 F000 F812       BL               Wait
+  245 000001F6         
+  246 000001F6 4A1B            LDR              R2,= E      ; Remise a 0 de E
+  247 000001F8 F04F 0100       LDR              R1,= 0x0
+  248 000001FC 6011            STR              R1,[R2]
+  249 000001FE         
+  250 000001FE F04F 0103       LDR              R1,= 3      ; Attente 
+  251 00000202 E7E7            B                boucle1
+  252 00000204 F000 F809       BL               Wait
+  253 00000208 BD00            POP              {PC}
+  254 0000020A         
+  255 0000020A         
+  256 0000020A         ;FONCTION LCDWR8
+  257 0000020A B500    LCDWR8  PUSH{LR}
+  258 0000020C         
+  259 0000020C F7FF FFE1       BL               LCDWR4
+  260 00000210 EA4F 1000       LSL              R0,#4
+  261 00000214 F7FF FFDD       BL               LCDWR4
+  262 00000218         
+  263 00000218 BD00            POP              {PC}
+  264 0000021A         
+  265 0000021A         ;FONCTION WAIT
+  266 0000021A B500    Wait    PUSH             {LR}
+  267 0000021C         
+  268 0000021C F1A1 0101 
+
+
+
+ARM Macro Assembler    Page 6 
+
+
+                       |b|     SUB              R1,#1
+  269 00000220 2900            CMP              R1,#0
+  270 00000222 D1FB            BNE              |b|
+  271 00000224 BD00            POP              {PC}
+  272 00000226         
+  273 00000226         ;FONCTION RS 1 
+  274 00000226         
+  275 00000226 B500    RS1     PUSH             {LR}
+  276 00000228         
+  277 00000228 4A0F            LDR              R2,=RS
+  278 0000022A F04F 0310       LDR              R3,=0x10
+  279 0000022E 6013            STR              R3,[R2]
+  280 00000230         
+  281 00000230 BD00            POP              {PC}
+  282 00000232         
+  283 00000232         ; FONCTION RS 0
+  284 00000232 B500    RS0     PUSH             {LR}
+  285 00000234         
+  286 00000234 4A0C            LDR              R2,=RS
+  287 00000236 F04F 0300       LDR              R3,=0x0
+  288 0000023A 6013            STR              R3,[R2]
+  289 0000023C         
+  290 0000023C BD00            POP              {PC}
+  291 0000023E         ; Eric
+  292 0000023E         
+  293 0000023E                 END
+              00 00 400FE108 
+              40006400 
+              40027400 
+              4000651C 
+              4002751C 
+              00516155 
+              0002D92B 
+              40027010 
+              400273C0 
+              40027020 
+              40006040 
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=.\lcd.d 
+-o.\lcd.o -IC:\Keil\ARM\RV31\INC -IC:\Keil\ARM\CMSIS\Include -IC:\Keil\ARM\Inc\
+Luminary --predefine="__EVAL SETA 1" --predefine="__MICROLIB SETA 1" --list=.\l
+cd.lst LCD.asm
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+LCDINIT 00000158
+
+Symbol: LCDINIT
+   Definitions
+      At line 177 in file LCD.asm
+   Uses
+      At line 57 in file LCD.asm
+Comment: LCDINIT used once
+LCDWR4 000001D2
+
+Symbol: LCDWR4
+   Definitions
+      At line 227 in file LCD.asm
+   Uses
+      At line 183 in file LCD.asm
+      At line 189 in file LCD.asm
+      At line 195 in file LCD.asm
+      At line 201 in file LCD.asm
+      At line 259 in file LCD.asm
+      At line 261 in file LCD.asm
+
+LCDWR8 0000020A
+
+Symbol: LCDWR8
+   Definitions
+      At line 257 in file LCD.asm
+   Uses
+      At line 61 in file LCD.asm
+      At line 67 in file LCD.asm
+      At line 73 in file LCD.asm
+      At line 79 in file LCD.asm
+      At line 85 in file LCD.asm
+      At line 91 in file LCD.asm
+      At line 97 in file LCD.asm
+      At line 103 in file LCD.asm
+      At line 109 in file LCD.asm
+      At line 115 in file LCD.asm
+      At line 122 in file LCD.asm
+      At line 129 in file LCD.asm
+      At line 136 in file LCD.asm
+      At line 143 in file LCD.asm
+      At line 150 in file LCD.asm
+      At line 157 in file LCD.asm
+      At line 164 in file LCD.asm
+      At line 207 in file LCD.asm
+      At line 213 in file LCD.asm
+      At line 219 in file LCD.asm
+
+MULTex 00000000
+
+Symbol: MULTex
+   Definitions
+      At line 1 in file LCD.asm
+   Uses
+      None
+Comment: MULTex unused
+RS0 00000232
+
+Symbol: RS0
+
+
+
+ARM Macro Assembler    Page 2 Alphabetic symbol ordering
+Relocatable symbols
+
+   Definitions
+      At line 284 in file LCD.asm
+   Uses
+      At line 181 in file LCD.asm
+Comment: RS0 used once
+RS1 00000226
+
+Symbol: RS1
+   Definitions
+      At line 275 in file LCD.asm
+   Uses
+      At line 59 in file LCD.asm
+Comment: RS1 used once
+Wait 0000021A
+
+Symbol: Wait
+   Definitions
+      At line 266 in file LCD.asm
+   Uses
+      At line 64 in file LCD.asm
+      At line 70 in file LCD.asm
+      At line 76 in file LCD.asm
+      At line 82 in file LCD.asm
+      At line 88 in file LCD.asm
+      At line 94 in file LCD.asm
+      At line 100 in file LCD.asm
+      At line 106 in file LCD.asm
+      At line 112 in file LCD.asm
+      At line 119 in file LCD.asm
+      At line 126 in file LCD.asm
+      At line 133 in file LCD.asm
+      At line 140 in file LCD.asm
+      At line 147 in file LCD.asm
+      At line 154 in file LCD.asm
+      At line 161 in file LCD.asm
+      At line 179 in file LCD.asm
+      At line 186 in file LCD.asm
+      At line 192 in file LCD.asm
+      At line 198 in file LCD.asm
+      At line 204 in file LCD.asm
+      At line 210 in file LCD.asm
+      At line 216 in file LCD.asm
+      At line 222 in file LCD.asm
+      At line 244 in file LCD.asm
+      At line 252 in file LCD.asm
+
+__main 00000000
+
+Symbol: __main
+   Definitions
+      At line 16 in file LCD.asm
+   Uses
+      At line 15 in file LCD.asm
+Comment: __main used once
+b 0000021C
+
+Symbol: b
+   Definitions
+      At line 268 in file LCD.asm
+
+
+
+ARM Macro Assembler    Page 3 Alphabetic symbol ordering
+Relocatable symbols
+
+   Uses
+      At line 270 in file LCD.asm
+Comment: b used once
+boucle 00000156
+
+Symbol: boucle
+   Definitions
+      At line 167 in file LCD.asm
+   Uses
+      At line 167 in file LCD.asm
+Comment: boucle used once
+boucle1 000001D4
+
+Symbol: boucle1
+   Definitions
+      At line 228 in file LCD.asm
+   Uses
+      At line 251 in file LCD.asm
+Comment: boucle1 used once
+11 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Absolute symbols
+
+DB4567 400273C0
+
+Symbol: DB4567
+   Definitions
+      At line 12 in file LCD.asm
+   Uses
+      At line 236 in file LCD.asm
+Comment: DB4567 used once
+E 40027020
+
+Symbol: E
+   Definitions
+      At line 9 in file LCD.asm
+   Uses
+      At line 239 in file LCD.asm
+      At line 246 in file LCD.asm
+
+GPIODENC 4000651C
+
+Symbol: GPIODENC
+   Definitions
+      At line 8 in file LCD.asm
+   Uses
+      At line 42 in file LCD.asm
+Comment: GPIODENC used once
+GPIODENH 4002751C
+
+Symbol: GPIODENH
+   Definitions
+      At line 7 in file LCD.asm
+   Uses
+      At line 49 in file LCD.asm
+Comment: GPIODENH used once
+GPIODIRC 40006400
+
+Symbol: GPIODIRC
+   Definitions
+      At line 5 in file LCD.asm
+   Uses
+      At line 28 in file LCD.asm
+Comment: GPIODIRC used once
+GPIODIRH 40027400
+
+Symbol: GPIODIRH
+   Definitions
+      At line 6 in file LCD.asm
+   Uses
+      At line 35 in file LCD.asm
+Comment: GPIODIRH used once
+RCGC2 400FE108
+
+Symbol: RCGC2
+   Definitions
+      At line 4 in file LCD.asm
+   Uses
+      At line 19 in file LCD.asm
+Comment: RCGC2 used once
+RS 40006040
+
+
+
+
+ARM Macro Assembler    Page 2 Alphabetic symbol ordering
+Absolute symbols
+
+Symbol: RS
+   Definitions
+      At line 11 in file LCD.asm
+   Uses
+      At line 277 in file LCD.asm
+      At line 286 in file LCD.asm
+
+RW 40027010
+
+Symbol: RW
+   Definitions
+      At line 10 in file LCD.asm
+   Uses
+      At line 231 in file LCD.asm
+Comment: RW used once
+9 symbols
+354 symbols in table

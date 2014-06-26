@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.params=pCounter
+comment0.target=Countdown(int)
+comment1.params=
+comment1.target=void\ decrement()
+comment1.text=The\ method\ we\ use\ to\ decrement\ the\ countdown
+comment2.params=
+comment2.target=int\ getTime()
+comment2.text=A\ getter\ for\ the\ attribute\ counter
+comment3.params=
+comment3.target=java.lang.String\ counterString()
+comment4.params=
+comment4.target=boolean\ countDownState()
+comment4.text=The\ method\ we\ use\ to\ know\ if\ the\ countdown\ is\ finished\ or\ not
+numComments=5

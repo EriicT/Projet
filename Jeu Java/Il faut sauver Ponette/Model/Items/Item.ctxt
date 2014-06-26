@@ -1,0 +1,26 @@
+#BlueJ class context
+comment0.params=pItemName\ pDescription\ pWeight
+comment0.target=Item(java.lang.String,\ java.lang.String,\ int)
+comment0.text=\r\n\ Constructor\ with\ 3\ parameters\r\n
+comment1.params=pItemName
+comment1.target=java.lang.String\ setNameItem(java.lang.String)
+comment1.text=\r\n\ Sets\ and\ returns\ the\ Name\ of\ an\ Item\r\n
+comment2.params=pWeight
+comment2.target=int\ setWeight(int)
+comment2.text=\r\n\ Sets\ Weights\ and\ returns\ Weights\r\n
+comment3.params=
+comment3.target=java.lang.String\ getItemName()
+comment3.text=\r\n\ Returns\ the\ Name\ of\ the\ Item\r\n
+comment4.params=pDescription
+comment4.target=java.lang.String\ setDescriptionItem(java.lang.String)
+comment4.text=\r\n\ Sets\ and\ returns\ Description\r\n
+comment5.params=
+comment5.target=int\ getWeight()
+comment5.text=\r\n\ Returns\ Weight\ of\ the\ item\r\n
+comment6.params=
+comment6.target=java.lang.String\ getDescriptionItem()
+comment6.text=\r\n\ Returns\ Description\ of\ the\ item\r\n
+comment7.params=
+comment7.target=java.lang.String\ getLongDescriptionItem()
+comment7.text=\r\n\ Returns\ Long\ Description\ of\ the\ Item\ for\ method\ examine\r\n
+numComments=8

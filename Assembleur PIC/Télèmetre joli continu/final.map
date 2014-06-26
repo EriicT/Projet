@@ -1,0 +1,260 @@
+MPLINK 4.41, Linker
+Linker Map File - Created Tue Jun 25 08:46:53 2013
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                   .org_0       code   0x000000    program   0x000002
+                   .cinit    romdata   0x000001    program   0x000004
+                   stan_t       code   0x000100    program   0x000554
+                    PROG1       code   0x0003aa    program   0x00026c
+                    PROG2       code   0x000800    program   0x00007c
+     .config_2007_FINAL.O       code   0x002007    program   0x000002
+               D_LCD_DATA      udata   0x000020       data   0x000004
+                variables      udata   0x000030       data   0x000014
+                 MATH_VAR      udata   0x000050       data   0x000009
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x000002      
+                            0x000100    0x0004df      
+                            0x000800    0x00083d      
+                            0x002007    0x002007      
+            1058 out of 8454 program addresses used, program memory utilization is 12%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                 Delay1ms   0x0004a0    program     static G:\Télèmetre joli continu\p16lcd.asm
+                Delay30ms   0x0004a7    program     static G:\Télèmetre joli continu\p16lcd.asm
+             DelayXCycles   0x00049d    program     static G:\Télèmetre joli continu\p16lcd.asm
+                  Delay_1   0x0004a3    program     static G:\Télèmetre joli continu\p16lcd.asm
+                    FinRd   0x000495    program     static G:\Télèmetre joli continu\p16lcd.asm
+                  LCDBusy   0x000496    program     extern G:\Télèmetre joli continu\p16lcd.asm
+                  LCDInit   0x0003c7    program     extern G:\Télèmetre joli continu\p16lcd.asm
+                LCDLine_1   0x0003aa    program     extern G:\Télèmetre joli continu\p16lcd.asm
+                LCDLine_2   0x0003b0    program     extern G:\Télèmetre joli continu\p16lcd.asm
+                  LCDRead   0x000454    program     static G:\Télèmetre joli continu\p16lcd.asm
+                 LCDWrite   0x00044b    program     extern G:\Télèmetre joli continu\p16lcd.asm
+           LCDWriteNibble   0x000427    program     static G:\Télèmetre joli continu\p16lcd.asm
+               LOOPU1608A   0x000818    program     static G:\Télèmetre joli continu\p16math.asm
+               LOOPU1608B   0x000826    program     static G:\Télèmetre joli continu\p16math.asm
+               LOOPUM0808   0x00080d    program     static G:\Télèmetre joli continu\p16math.asm
+              LOOPUM0808A   0x000804    program     static G:\Télèmetre joli continu\p16math.asm
+                LUM0808NA   0x000810    program     static G:\Télèmetre joli continu\p16math.asm
+               LUM0808NAP   0x00080b    program     static G:\Télèmetre joli continu\p16math.asm
+                      Lb1   0x00037d    program     static G:\Télèmetre joli continu\final.asm
+                      Lb2   0x000381    program     static G:\Télèmetre joli continu\final.asm
+                      Lb3   0x000385    program     static G:\Télèmetre joli continu\final.asm
+                      Lb4   0x000389    program     static G:\Télèmetre joli continu\final.asm
+                LongDelay   0x0004d2    program     static G:\Télèmetre joli continu\p16lcd.asm
+            LongDelayLast   0x0004dc    program     static G:\Télèmetre joli continu\p16lcd.asm
+                UDIV1608L   0x000815    program     extern G:\Télèmetre joli continu\p16math.asm
+                UMUL0808L   0x000800    program     extern G:\Télèmetre joli continu\p16math.asm
+                   UOK68A   0x000820    program     static G:\Télèmetre joli continu\p16math.asm
+                   UOK68B   0x00083a    program     static G:\Télèmetre joli continu\p16math.asm
+              _PROG1_0015   0x0003bf    program     static G:\Télèmetre joli continu\p16lcd.asm
+              _PROG1_0038   0x0003e2    program     static G:\Télèmetre joli continu\p16lcd.asm
+              _PROG1_0043   0x0003ed    program     static G:\Télèmetre joli continu\p16lcd.asm
+             _stan_t_026A   0x00026a    program     static G:\Télèmetre joli continu\final.asm
+             _stan_t_0272   0x000272    program     static G:\Télèmetre joli continu\final.asm
+             _stan_t_02FB   0x0002fb    program     static G:\Télèmetre joli continu\final.asm
+             _stan_t_0303   0x000303    program     static G:\Télèmetre joli continu\final.asm
+             _stan_t_031C   0x00031c    program     static G:\Télèmetre joli continu\final.asm
+             _stan_t_0324   0x000324    program     static G:\Télèmetre joli continu\final.asm
+             _stan_t_032D   0x00032d    program     static G:\Télèmetre joli continu\final.asm
+             _stan_t_032F   0x00032f    program     static G:\Télèmetre joli continu\final.asm
+             _stan_t_0339   0x000339    program     static G:\Télèmetre joli continu\final.asm
+             _stan_t_033B   0x00033b    program     static G:\Télèmetre joli continu\final.asm
+             _stan_t_033D   0x00033d    program     static G:\Télèmetre joli continu\final.asm
+                bin16_bcd   0x00035c    program     static G:\Télèmetre joli continu\final.asm
+                  bin_bcd   0x00033f    program     static G:\Télèmetre joli continu\final.asm
+              boucle_tmr1   0x0001e7    program     static G:\Télèmetre joli continu\final.asm
+             boucle_tmr11   0x0001ec    program     static G:\Télèmetre joli continu\final.asm
+              boucle_tmr2   0x0001f2    program     static G:\Télèmetre joli continu\final.asm
+             boucle_tmr22   0x0001f7    program     static G:\Télèmetre joli continu\final.asm
+              boucle_tmr3   0x0001fd    program     static G:\Télèmetre joli continu\final.asm
+             boucle_tmr33   0x000202    program     static G:\Télèmetre joli continu\final.asm
+              boucle_tmr4   0x000208    program     static G:\Télèmetre joli continu\final.asm
+             boucle_tmr44   0x00020d    program     static G:\Télèmetre joli continu\final.asm
+              boucle_tmr5   0x000213    program     static G:\Télèmetre joli continu\final.asm
+             boucle_tmr55   0x000218    program     static G:\Télèmetre joli continu\final.asm
+                    choix   0x0001d7    program     static G:\Télèmetre joli continu\final.asm
+                  d_write   0x0003b6    program     extern G:\Télèmetre joli continu\p16lcd.asm
+                    debut   0x0001c1    program     static G:\Télèmetre joli continu\final.asm
+              delay_100ms   0x000326    program     static G:\Télèmetre joli continu\final.asm
+                 delay_1s   0x000331    program     static G:\Télèmetre joli continu\final.asm
+                ghundreth   0x000344    program     static G:\Télèmetre joli continu\final.asm
+                   gtenth   0x00034b    program     static G:\Télèmetre joli continu\final.asm
+                  i_write   0x0003c3    program     extern G:\Télèmetre joli continu\p16lcd.asm
+                     init   0x00038e    program     static G:\Télèmetre joli continu\final.asm
+             interruption   0x00021d    program     static G:\Télèmetre joli continu\final.asm
+                       la   0x0002de    program     static G:\Télèmetre joli continu\final.asm
+                     menu   0x0001cc    program     static G:\Télèmetre joli continu\final.asm
+                     over   0x000352    program     static G:\Télèmetre joli continu\final.asm
+             presentation   0x000278    program     static G:\Télèmetre joli continu\final.asm
+                programme   0x0001dd    program     static G:\Télèmetre joli continu\final.asm
+              stan_char_1   0x0002e4    program     static G:\Télèmetre joli continu\final.asm
+              stan_char_2   0x000305    program     static G:\Télèmetre joli continu\final.asm
+         stan_next_char_1   0x0002e9    program     static G:\Télèmetre joli continu\final.asm
+         stan_next_char_2   0x00030a    program     static G:\Télèmetre joli continu\final.asm
+               stan_table   0x000100    program     static G:\Télèmetre joli continu\final.asm
+                    suite   0x0001da    program     static G:\Télèmetre joli continu\final.asm
+                   suite2   0x0002e1    program     static G:\Télèmetre joli continu\final.asm
+                 testflag   0x00021b    program     static G:\Télèmetre joli continu\final.asm
+                   AARGB0   0x000050       data     extern G:\Télèmetre joli continu\p16math.asm
+                   AARGB1   0x000051       data     extern G:\Télèmetre joli continu\p16math.asm
+                   AARGB5   0x000052       data     static G:\Télèmetre joli continu\p16math.asm
+                   BARGB0   0x000053       data     extern G:\Télèmetre joli continu\p16math.asm
+                   BARGB1   0x000054       data     static G:\Télèmetre joli continu\p16math.asm
+                  COUNTER   0x000020       data     static G:\Télèmetre joli continu\p16lcd.asm
+                     Hund   0x000041       data     static G:\Télèmetre joli continu\final.asm
+                LOOPCOUNT   0x000058       data     static G:\Télèmetre joli continu\p16math.asm
+                      LSD   0x000037       data     static G:\Télèmetre joli continu\final.asm
+                      MSD   0x000039       data     static G:\Télèmetre joli continu\final.asm
+                      MsD   0x000038       data     static G:\Télèmetre joli continu\final.asm
+                     NumH   0x00003d       data     static G:\Télèmetre joli continu\final.asm
+                     NumL   0x00003e       data     static G:\Télèmetre joli continu\final.asm
+                     Ones   0x000043       data     static G:\Télèmetre joli continu\final.asm
+                    REMB0   0x000055       data     static G:\Télèmetre joli continu\p16math.asm
+                    REMB1   0x000056       data     static G:\Télèmetre joli continu\p16math.asm
+                     TEMP   0x000057       data     static G:\Télèmetre joli continu\p16math.asm
+                     TenK   0x00003f       data     static G:\Télèmetre joli continu\final.asm
+                     Tens   0x000042       data     static G:\Télèmetre joli continu\final.asm
+                     Thou   0x000040       data     static G:\Télèmetre joli continu\final.asm
+                 cmd_byte   0x000035       data     static G:\Télèmetre joli continu\final.asm
+                    delay   0x000021       data     static G:\Télèmetre joli continu\p16lcd.asm
+                    hours   0x00003c       data     static G:\Télèmetre joli continu\final.asm
+                  minutes   0x00003b       data     static G:\Télèmetre joli continu\final.asm
+                ptr_count   0x000031       data     static G:\Télèmetre joli continu\final.asm
+                  ptr_pos   0x000030       data     static G:\Télèmetre joli continu\final.asm
+                  seconds   0x00003a       data     static G:\Télèmetre joli continu\final.asm
+                   temp_1   0x000032       data     static G:\Télèmetre joli continu\final.asm
+                   temp_2   0x000033       data     static G:\Télèmetre joli continu\final.asm
+                   temp_3   0x000034       data     static G:\Télèmetre joli continu\final.asm
+                  temp_rd   0x000023       data     static G:\Télèmetre joli continu\p16lcd.asm
+                  temp_wr   0x000022       data     extern G:\Télèmetre joli continu\p16lcd.asm
+              temperature   0x000036       data     static G:\Télèmetre joli continu\final.asm
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+               stan_table   0x000100    program     static G:\Télèmetre joli continu\final.asm
+                    debut   0x0001c1    program     static G:\Télèmetre joli continu\final.asm
+                     menu   0x0001cc    program     static G:\Télèmetre joli continu\final.asm
+                    choix   0x0001d7    program     static G:\Télèmetre joli continu\final.asm
+                    suite   0x0001da    program     static G:\Télèmetre joli continu\final.asm
+                programme   0x0001dd    program     static G:\Télèmetre joli continu\final.asm
+              boucle_tmr1   0x0001e7    program     static G:\Télèmetre joli continu\final.asm
+             boucle_tmr11   0x0001ec    program     static G:\Télèmetre joli continu\final.asm
+              boucle_tmr2   0x0001f2    program     static G:\Télèmetre joli continu\final.asm
+             boucle_tmr22   0x0001f7    program     static G:\Télèmetre joli continu\final.asm
+              boucle_tmr3   0x0001fd    program     static G:\Télèmetre joli continu\final.asm
+             boucle_tmr33   0x000202    program     static G:\Télèmetre joli continu\final.asm
+              boucle_tmr4   0x000208    program     static G:\Télèmetre joli continu\final.asm
+             boucle_tmr44   0x00020d    program     static G:\Télèmetre joli continu\final.asm
+              boucle_tmr5   0x000213    program     static G:\Télèmetre joli continu\final.asm
+             boucle_tmr55   0x000218    program     static G:\Télèmetre joli continu\final.asm
+                 testflag   0x00021b    program     static G:\Télèmetre joli continu\final.asm
+             interruption   0x00021d    program     static G:\Télèmetre joli continu\final.asm
+             _stan_t_026A   0x00026a    program     static G:\Télèmetre joli continu\final.asm
+             _stan_t_0272   0x000272    program     static G:\Télèmetre joli continu\final.asm
+             presentation   0x000278    program     static G:\Télèmetre joli continu\final.asm
+                       la   0x0002de    program     static G:\Télèmetre joli continu\final.asm
+                   suite2   0x0002e1    program     static G:\Télèmetre joli continu\final.asm
+              stan_char_1   0x0002e4    program     static G:\Télèmetre joli continu\final.asm
+         stan_next_char_1   0x0002e9    program     static G:\Télèmetre joli continu\final.asm
+             _stan_t_02FB   0x0002fb    program     static G:\Télèmetre joli continu\final.asm
+             _stan_t_0303   0x000303    program     static G:\Télèmetre joli continu\final.asm
+              stan_char_2   0x000305    program     static G:\Télèmetre joli continu\final.asm
+         stan_next_char_2   0x00030a    program     static G:\Télèmetre joli continu\final.asm
+             _stan_t_031C   0x00031c    program     static G:\Télèmetre joli continu\final.asm
+             _stan_t_0324   0x000324    program     static G:\Télèmetre joli continu\final.asm
+              delay_100ms   0x000326    program     static G:\Télèmetre joli continu\final.asm
+             _stan_t_032D   0x00032d    program     static G:\Télèmetre joli continu\final.asm
+             _stan_t_032F   0x00032f    program     static G:\Télèmetre joli continu\final.asm
+                 delay_1s   0x000331    program     static G:\Télèmetre joli continu\final.asm
+             _stan_t_0339   0x000339    program     static G:\Télèmetre joli continu\final.asm
+             _stan_t_033B   0x00033b    program     static G:\Télèmetre joli continu\final.asm
+             _stan_t_033D   0x00033d    program     static G:\Télèmetre joli continu\final.asm
+                  bin_bcd   0x00033f    program     static G:\Télèmetre joli continu\final.asm
+                ghundreth   0x000344    program     static G:\Télèmetre joli continu\final.asm
+                   gtenth   0x00034b    program     static G:\Télèmetre joli continu\final.asm
+                     over   0x000352    program     static G:\Télèmetre joli continu\final.asm
+                bin16_bcd   0x00035c    program     static G:\Télèmetre joli continu\final.asm
+                      Lb1   0x00037d    program     static G:\Télèmetre joli continu\final.asm
+                      Lb2   0x000381    program     static G:\Télèmetre joli continu\final.asm
+                      Lb3   0x000385    program     static G:\Télèmetre joli continu\final.asm
+                      Lb4   0x000389    program     static G:\Télèmetre joli continu\final.asm
+                     init   0x00038e    program     static G:\Télèmetre joli continu\final.asm
+                LCDLine_1   0x0003aa    program     extern G:\Télèmetre joli continu\p16lcd.asm
+                LCDLine_2   0x0003b0    program     extern G:\Télèmetre joli continu\p16lcd.asm
+                  d_write   0x0003b6    program     extern G:\Télèmetre joli continu\p16lcd.asm
+              _PROG1_0015   0x0003bf    program     static G:\Télèmetre joli continu\p16lcd.asm
+                  i_write   0x0003c3    program     extern G:\Télèmetre joli continu\p16lcd.asm
+                  LCDInit   0x0003c7    program     extern G:\Télèmetre joli continu\p16lcd.asm
+              _PROG1_0038   0x0003e2    program     static G:\Télèmetre joli continu\p16lcd.asm
+              _PROG1_0043   0x0003ed    program     static G:\Télèmetre joli continu\p16lcd.asm
+           LCDWriteNibble   0x000427    program     static G:\Télèmetre joli continu\p16lcd.asm
+                 LCDWrite   0x00044b    program     extern G:\Télèmetre joli continu\p16lcd.asm
+                  LCDRead   0x000454    program     static G:\Télèmetre joli continu\p16lcd.asm
+                    FinRd   0x000495    program     static G:\Télèmetre joli continu\p16lcd.asm
+                  LCDBusy   0x000496    program     extern G:\Télèmetre joli continu\p16lcd.asm
+             DelayXCycles   0x00049d    program     static G:\Télèmetre joli continu\p16lcd.asm
+                 Delay1ms   0x0004a0    program     static G:\Télèmetre joli continu\p16lcd.asm
+                  Delay_1   0x0004a3    program     static G:\Télèmetre joli continu\p16lcd.asm
+                Delay30ms   0x0004a7    program     static G:\Télèmetre joli continu\p16lcd.asm
+                LongDelay   0x0004d2    program     static G:\Télèmetre joli continu\p16lcd.asm
+            LongDelayLast   0x0004dc    program     static G:\Télèmetre joli continu\p16lcd.asm
+                UMUL0808L   0x000800    program     extern G:\Télèmetre joli continu\p16math.asm
+              LOOPUM0808A   0x000804    program     static G:\Télèmetre joli continu\p16math.asm
+               LUM0808NAP   0x00080b    program     static G:\Télèmetre joli continu\p16math.asm
+               LOOPUM0808   0x00080d    program     static G:\Télèmetre joli continu\p16math.asm
+                LUM0808NA   0x000810    program     static G:\Télèmetre joli continu\p16math.asm
+                UDIV1608L   0x000815    program     extern G:\Télèmetre joli continu\p16math.asm
+               LOOPU1608A   0x000818    program     static G:\Télèmetre joli continu\p16math.asm
+                   UOK68A   0x000820    program     static G:\Télèmetre joli continu\p16math.asm
+               LOOPU1608B   0x000826    program     static G:\Télèmetre joli continu\p16math.asm
+                   UOK68B   0x00083a    program     static G:\Télèmetre joli continu\p16math.asm
+                  COUNTER   0x000020       data     static G:\Télèmetre joli continu\p16lcd.asm
+                    delay   0x000021       data     static G:\Télèmetre joli continu\p16lcd.asm
+                  temp_wr   0x000022       data     extern G:\Télèmetre joli continu\p16lcd.asm
+                  temp_rd   0x000023       data     static G:\Télèmetre joli continu\p16lcd.asm
+                  ptr_pos   0x000030       data     static G:\Télèmetre joli continu\final.asm
+                ptr_count   0x000031       data     static G:\Télèmetre joli continu\final.asm
+                   temp_1   0x000032       data     static G:\Télèmetre joli continu\final.asm
+                   temp_2   0x000033       data     static G:\Télèmetre joli continu\final.asm
+                   temp_3   0x000034       data     static G:\Télèmetre joli continu\final.asm
+                 cmd_byte   0x000035       data     static G:\Télèmetre joli continu\final.asm
+              temperature   0x000036       data     static G:\Télèmetre joli continu\final.asm
+                      LSD   0x000037       data     static G:\Télèmetre joli continu\final.asm
+                      MsD   0x000038       data     static G:\Télèmetre joli continu\final.asm
+                      MSD   0x000039       data     static G:\Télèmetre joli continu\final.asm
+                  seconds   0x00003a       data     static G:\Télèmetre joli continu\final.asm
+                  minutes   0x00003b       data     static G:\Télèmetre joli continu\final.asm
+                    hours   0x00003c       data     static G:\Télèmetre joli continu\final.asm
+                     NumH   0x00003d       data     static G:\Télèmetre joli continu\final.asm
+                     NumL   0x00003e       data     static G:\Télèmetre joli continu\final.asm
+                     TenK   0x00003f       data     static G:\Télèmetre joli continu\final.asm
+                     Thou   0x000040       data     static G:\Télèmetre joli continu\final.asm
+                     Hund   0x000041       data     static G:\Télèmetre joli continu\final.asm
+                     Tens   0x000042       data     static G:\Télèmetre joli continu\final.asm
+                     Ones   0x000043       data     static G:\Télèmetre joli continu\final.asm
+                   AARGB0   0x000050       data     extern G:\Télèmetre joli continu\p16math.asm
+                   AARGB1   0x000051       data     extern G:\Télèmetre joli continu\p16math.asm
+                   AARGB5   0x000052       data     static G:\Télèmetre joli continu\p16math.asm
+                   BARGB0   0x000053       data     extern G:\Télèmetre joli continu\p16math.asm
+                   BARGB1   0x000054       data     static G:\Télèmetre joli continu\p16math.asm
+                    REMB0   0x000055       data     static G:\Télèmetre joli continu\p16math.asm
+                    REMB1   0x000056       data     static G:\Télèmetre joli continu\p16math.asm
+                     TEMP   0x000057       data     static G:\Télèmetre joli continu\p16math.asm
+                LOOPCOUNT   0x000058       data     static G:\Télèmetre joli continu\p16math.asm
+
+
