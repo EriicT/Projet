@@ -2,14 +2,15 @@ Voici l'ensemble des me projets.
 
 Jeu Java (2 semaines ~ 40h)* :
 Principe : un jeu textuel de type zork en autoformation
-Programmation : 80% du code à peu près. 
-Rôle dans le groupe : programmeur principal (binôme graphiste et scénariste)
-
+Programmation : 80% du code ï¿½ peu prï¿½s. 
+Rï¿½le dans le groupe : programmeur principal (binï¿½me graphiste et scï¿½nariste)
+Le projet s'ouvre avec BlueJ
+ 
 Python (1 jour : ~ 6h)* :
-Principe : récupérer et traiter des données de façon dynamique
+Principe : rï¿½cupï¿½rer et traiter des donnï¿½es de faï¿½on dynamique
 Programmation : 100% du code. 
-Rôle dans le groupe : unique programmeur, le binôme s'est chargé de récuperer les données en CSV.
-ATTENTION : Si vous voulez exécuter le programme, il faut une version >= à Python 2.7 et la librairie matplotlib et basemap :
+Rï¿½le dans le groupe : unique programmeur, le binï¿½me s'est chargï¿½ de rï¿½cuperer les donnï¿½es en CSV.
+ATTENTION : Si vous voulez exï¿½cuter le programme, il faut une version >= ï¿½ Python 2.7 et la librairie matplotlib et basemap :
 matplotlib : http://matplotlib.org/downloads.html
 matplotlib basemap : http://sourceforge.net/projects/matplotlib/files/matplotlib-toolkits/
 
@@ -17,21 +18,21 @@ HTML/CSS/Javascript (un week end ~ 6h *):
 Principe : s'initier seul aux technologies du WEB
 Programmation : 100% du code, 
 
-Arduino, projet contrôle moteur (une semaine <10h)* : 
-Principe : contrôler un moteur en fonction de commande (vitesse + sens). 
-Projet présenté au Jour des Projets : association avec un télémètre ultrason et une couroie attachée au moteur pour déplacer un objet à la distance voulue.
-Programmation : j'ai fait la totalité du code.
-Rôle dans le groupe : unique programmeur (3 membres au total)
+Arduino, projet contrï¿½le moteur (une semaine <10h)* : 
+Principe : contrï¿½ler un moteur en fonction de commande (vitesse + sens). 
+Projet prï¿½sentï¿½ au Jour des Projets : association avec un tï¿½lï¿½mï¿½tre ultrason et une couroie attachï¿½e au moteur pour dï¿½placer un objet ï¿½ la distance voulue.
+Programmation : j'ai fait la totalitï¿½ du code.
+Rï¿½le dans le groupe : unique programmeur (3 membres au total)
 
 Assembleur ARM Cortex (1 mois ~ 15h )*:
-Principe : utiliser un evalbot en terme de télémètre ultrason.
-Programmation : j'ai fait la totalité du code, 
-Rôle dans le groupe : unique programmeur (binôme qui préfèrait se limer les ongles.. les filles !)
+Principe : utiliser un evalbot en terme de tï¿½lï¿½mï¿½tre ultrason.
+Programmation : j'ai fait la totalitï¿½ du code, 
+Rï¿½le dans le groupe : unique programmeur (binï¿½me qui prï¿½fï¿½rait se limer les ongles.. les filles !)
 
 Assembleur PIC (4 mois ~20h)* : 
-Principe : envoyer un burst d'ultrason, traiter les données et gerer le temps.
-Programmation : j'ai fait 90%. J'ai récuperer une fonction à un autre binôme en échange d'une autre fonction 
-Rôle dans le groupe : chef de la partie informatique et unique programmeur (coéquipiers faignants)
+Principe : envoyer un burst d'ultrason, traiter les donnï¿½es et gerer le temps.
+Programmation : j'ai fait 90%. J'ai rï¿½cuperer une fonction ï¿½ un autre binï¿½me en ï¿½change d'une autre fonction 
+Rï¿½le dans le groupe : chef de la partie informatique et unique programmeur (coï¿½quipiers faignants)
 
 
-* plage de durée sur laquelle j'ai travaillé + cumul du temps passé dessus
+* plage de durï¿½e sur laquelle j'ai travaillï¿½ + cumul du temps passï¿½ dessus
