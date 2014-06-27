@@ -4,7 +4,7 @@ Jeu Java (2 semaines ~ 40h)* :
 Principe : un jeu textuel de type zork en autoformation
 Programmation : 80% du code � peu pr�s. 
 R�le dans le groupe : programmeur principal (bin�me graphiste et sc�nariste)
-Le projet s'ouvre avec BlueJ
+Le projet s'ouvre avec BlueJ : http://www.bluej.org/
  
 Python (1 jour : ~ 6h)* :
 Principe : r�cup�rer et traiter des donn�es de fa�on dynamique
